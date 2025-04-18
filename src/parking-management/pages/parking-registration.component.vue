@@ -18,7 +18,8 @@ export default {
       showDialog: false,
       confirmation: 'Are you sure you want to cancel the registration?',
       size: 'default',
-      parkingService: null
+      parkingService: null,
+      parkingSpots: [],
     }
   },
   methods: {
@@ -45,6 +46,13 @@ export default {
     },
     handleParkingDesign(data) {
       console.log('Diseño de estacionamiento actualizado:', data);
+      this.parkingSpots = data.map(spot => {
+        return {
+          row: spot.row,
+          column: spot.col,
+          label: spot.label,
+        }
+      })
     },
     handleParkingValues(data) {
       this.parkingData = new Parking({...this.parkingData, ...data});
@@ -61,18 +69,77 @@ export default {
     handleDialogCancel() {
       this.showDialog = false;
     },
-    createParking() {
-      this.parkingService = new ParkingService();
-      this.parkingData.ownerId = 1;
-      this.parkingService.create(this.parkingData).then(response => {
-        let parking = new Parking(response.data);
-        this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Parking was created successfully!', life: 3000 });
-      }).catch(error => {
-        console.error(error);
-        this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to create parking!', life: 3000 });
-      });
-      this.showDialog = false;
+    async handleDialogConfirm() {
+      try {
+        this.showDialog = false;
+        await this.createParking();
+      } catch (error) {
+        console.error("Error in the saving process:", error);
+      }
     },
+
+    async createParking() {
+      try {
+        this.parkingData.ownerId = 1;
+        const response = await this.parkingService.create(this.parkingData);
+        const parking = new Parking(response.data);
+
+        // If we have spots to save, create them
+        if (this.parkingSpots && this.parkingSpots.length > 0) {
+          await this.createParkingSpots(parking.id);
+        }
+
+        this.$toast.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Parking was created successfully!',
+          life: 3000
+        });
+
+        // Redirect after the entire process
+        //this.$router.push('/parkings');
+      } catch (error) {
+        console.error(error);
+        this.$toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to create parking',
+          life: 3000
+        });
+      }
+    },
+
+    async createParkingSpots(parkingId) {
+      try {
+        // Create an array of promises for all requests
+        const promises = this.parkingSpots.map(spot =>
+            this.parkingService.addParkingSpot(parkingId, spot)
+        );
+
+        // Wait for all promises to resolve
+        await Promise.all(promises);
+
+        this.$toast.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Parking spots created successfully!',
+          life: 3000
+        });
+      } catch (error) {
+        console.error("Error creating parking spots:", error);
+        this.$toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to create some parking spots',
+          life: 3000
+        });
+        // The exception propagates up to be handled in createParking
+        throw error;
+      }
+    }
+  },
+  created() {
+    this.parkingService = new ParkingService();
   }
 }
 </script>
@@ -145,7 +212,7 @@ export default {
           label="Yes, save"
           icon="pi pi-check"
           class="p-button-success save-btn"
-          @click="createParking" />
+          @click="handleDialogConfirm" />
     </template>
   </pv-dialog>
   <pv-toast />
@@ -159,7 +226,6 @@ export default {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
 }
 
 .steps-indicator {

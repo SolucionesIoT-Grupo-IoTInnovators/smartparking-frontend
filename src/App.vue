@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       items: [
+        { label: 'Home', to: '/' },
         { label: 'Registration', to: '/parking/registration' },
       ]
     }
