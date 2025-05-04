@@ -1,8 +1,6 @@
-import App from './App.vue'
-import { createApp } from 'vue'
-
+import {createApp} from 'vue'
 import './style.css';
-
+import App from './App.vue'
 import i18n from "./i18n.js";
 
 import PrimeVue from 'primevue/config';
@@ -14,21 +12,34 @@ import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css'
 import DialogService from "primevue/dialogservice";
 import ToastService from "primevue/toastservice";
+import Avatar from 'primevue/avatar';
 import Button from 'primevue/button';
+import Card from 'primevue/card';
 import Dialog from 'primevue/dialog';
 import FileUpload from 'primevue/fileupload';
 import FloatLabel from "primevue/floatlabel";
 import InputNumber from "primevue/inputnumber";
 import InputText from 'primevue/inputtext';
+import Menu from 'primevue/menu';
+import Rating from 'primevue/rating';
 import Textarea from 'primevue/textarea';
 import Toast from 'primevue/toast';
+import Toolbar from 'primevue/toolbar';
+import SplitButton from 'primevue/splitbutton';
 
 
 import router from "./router/index.js";
-import { createPinia } from 'pinia';
-
+import {createPinia} from 'pinia';
 
 const app = createApp(App)
+
+app.use(i18n);
+
+const pinia = createPinia();
+app.use(pinia);
+
+app.use(router);
+
 
 const MyPreset = definePreset(Material, {
     semantic: {
@@ -49,7 +60,6 @@ const MyPreset = definePreset(Material, {
 });
 
 
-
 app.use(PrimeVue, {
     theme: {
         preset: MyPreset,
@@ -61,23 +71,20 @@ app.use(PrimeVue, {
 .use(DialogService)
 .use(ToastService);
 
-app.use(i18n);
-
-app.use(router);
-const pinia = createPinia();
-
-
-app.use(pinia);
-
-
-app.component('pv-button', Button)
+app.component('pv-avatar', Avatar)
+    .component('pv-button', Button)
+    .component('pv-card', Card)
     .component('pv-dialog', Dialog)
     .component('pv-file-upload', FileUpload)
     .component('pv-float-label', FloatLabel)
     .component('pv-input-number', InputNumber)
     .component('pv-input-text', InputText)
+    .component('pv-menu', Menu)
+    .component('pv-rating', Rating)
     .component('pv-textarea', Textarea)
     .component('pv-toast', Toast)
+    .component('pv-toolbar', Toolbar)
+    .component('pv-split-button', SplitButton)
 
 
 app.mount('#app');
