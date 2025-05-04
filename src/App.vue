@@ -1,22 +1,34 @@
 <template>
-  <div class="flex-column">
-    <router-link v-for="item in items" :key="item.label" v-slot="{navigate, href}" :to="item.to" custom>
-      <pv-button :href="href" @click="navigate">{{ item.label }}</pv-button>
-    </router-link>
-  </div>
-  <router-view />
+  <component :is="layout">
+    <router-view/>
+  </component>
 </template>
 
 <script>
+import {useAuthenticationStore} from "./iam/services/authentication.store.js";
+import ParkingManagementLayout from "./parking-management/layouts/parking-management-layout.component.vue";
+import EmptyLayout from "./shared/layouts/empty-layout.component.vue";
+
 export default {
   name: "app",
-  components: {},
-  data() {
-    return {
-      items: [
-        { label: 'Home', to: '/' },
-        { label: 'Registration', to: '/parking/registration' },
-      ]
+  components: {ParkingManagementLayout, EmptyLayout},
+  computed: {
+    layout() {
+      return this.$route.meta.layout || 'ParkingManagementLayout';
+    }
+  },
+  mounted() {
+    //window.addEventListener('beforeunload', this.handleBeforeUnload);
+  },
+  beforeUnmount() {
+    //window.removeEventListener('beforeunload', this.handleBeforeUnload);
+  },
+  methods: {
+    handleBeforeUnload() {
+      const authStore = useAuthenticationStore();
+      if (authStore.isSignedIn) {
+        authStore.signOut(this.router)
+      }
     }
   }
 }

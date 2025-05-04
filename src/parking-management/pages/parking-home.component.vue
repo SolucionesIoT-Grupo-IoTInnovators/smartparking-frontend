@@ -15,7 +15,8 @@ export default {
   },
   async mounted() {
     this.parkingService = new ParkingService();
-    await this.parkingService.getParkingById(4).then(response => {
+    const parkingId = this.$route.params.parkingId;
+    await this.parkingService.getParkingById(parkingId).then(response => {
       this.parking = new Parking({...response.data});
       console.log(this.parking);
     }).catch(error => {
@@ -24,6 +25,10 @@ export default {
   },
   methods: {
     handleSelectedSpot(data) {
+      if (data == null) {
+        this.selectedSpot = null;
+        return;
+      }
       this.selectedSpot = data;
     }
   }
@@ -51,6 +56,7 @@ export default {
     <h2>Selected Spot Details</h2>
     <p>ID: {{ selectedSpot.id }}</p>
     <p>Label: {{ selectedSpot.label }}</p>
+    <p>Status: {{ selectedSpot.status }}</p>
   </div>
   </div>
 </template>

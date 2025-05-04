@@ -119,7 +119,6 @@ export default {
           return cell;
         });
       });
-      this.saveDesign();
     },
 
     // Save the parking design
@@ -132,6 +131,22 @@ export default {
       this.parking.availableSpots = this.parkingSpots.length;
       this.$emit('parking-values', this.parking);
       this.$emit('parking-design', this.parkingSpots);
+    },
+    previousStep() {
+      this.$emit('previous-step');
+    },
+    finish() {
+      if (this.parkingSpots.length === 0) {
+        this.$toast.add({
+          severity: 'warn',
+          summary: 'Warning',
+          detail: 'Please add at least one parking spot.',
+          life: 3000,
+        });
+        return;
+      }
+      this.$emit('finish');
+      this.saveDesign();
     },
 
   },
@@ -171,6 +186,11 @@ export default {
         </tbody>
       </table>
     </div>
+  </div>
+
+  <div class="flex justify-content-between mt-4">
+    <pv-button label="Back" icon="pi pi-arrow-left" @click="previousStep"/>
+    <pv-button label="Finish" icon="pi pi-check" @click="finish" />
   </div>
 </template>
 

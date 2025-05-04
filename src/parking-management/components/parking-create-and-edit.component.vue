@@ -1,5 +1,6 @@
 <script>
 import {Parking} from "../model/parking.entity";
+import {useAuthenticationStore} from "../../iam/services/authentication.store.js";
 
 export default {
   name: "parking-create-and-edit",
@@ -13,7 +14,8 @@ export default {
     return {
       submitted: false,
       localParking: new Parking({}),
-      imageFile: null
+      imageFile: null,
+      useStore: null,
     }
   },
   watch: {
@@ -34,8 +36,10 @@ export default {
       this.localParking = new Parking({});
     },
     handleCancel() {
+      this.useStore = useAuthenticationStore();
       this.resetForm();
-      this.$emit('cancel');
+      // this.$emit('cancel');
+      this.$router.push({ name: "parking-directory", params: { ownerId: this.useStore.currentUserId } });
     },
     handleSave() {
       this.submitted = true;

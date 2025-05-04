@@ -1,5 +1,4 @@
 <script>
-import {Parking} from "../model/parking.entity.js";
 import {ParkingService} from "../services/parking.service.js";
 
 export default {
@@ -42,7 +41,7 @@ export default {
             type: 'aisle',
             label: '',
             row,
-            col
+            col,
           });
         }
         this.grid.push(rowArray);
@@ -61,7 +60,7 @@ export default {
             id: spot.id,
             row,
             col,
-            isAvailable: spot.available
+            status: spot.status,
           };
         }
       }
@@ -74,15 +73,53 @@ export default {
           detail: 'This is an aisle, choose a parking spot.',
           life: 3000
         });
+        this.selectedParkingSpot = null;
+        this.$emit('parking-spot-selected', null);
         return;
       }
-      const selectedData = {
-        id: cell.id,
-        label: cell.label
-      };
-      this.selectedParkingSpot = selectedData;
-      console.log('Selected cell:', selectedData);
-      this.$emit('parking-spot-selected', selectedData);
+
+      switch (cell.status) {
+        case 'AVAILABLE':
+          const selectedData = {
+            id: cell.id,
+            label: cell.label,
+            status: cell.status
+          };
+          this.selectedParkingSpot = selectedData;
+          console.log('Selected cell:', selectedData);
+          this.$emit('parking-spot-selected', selectedData);
+          break;
+        case 'RESERVED':
+          this.$toast.add({
+            severity: 'warn',
+            summary: 'Warning',
+            detail: 'This parking spot is reserved.',
+            life: 3000
+          });
+          this.selectedParkingSpot = null;
+          this.$emit('parking-spot-selected', null);
+          break;
+        case 'OCCUPIED':
+          this.$toast.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'This parking spot is occupied.',
+            life: 3000
+          });
+          this.selectedParkingSpot = null;
+          this.$emit('parking-spot-selected', null);
+          break;
+        default:
+          this.$toast.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Unknown status.',
+            life: 3000
+          });
+          this.selectedParkingSpot = null;
+          this.$emit('parking-spot-selected', null);
+          break;
+      }
     }
   }
 }
@@ -93,25 +130,39 @@ export default {
     <div v-if="grid.length === 0" class="loading">
       <p>Loading parking spots...</p>
     </div>
+
     <table v-else>
       <tbody>
-        <tr v-for="(row, rowIndex) in grid" :key="rowIndex">
-          <td
+      <tr v-for="(row, rowIndex) in grid" :key="rowIndex">
+        <td
             v-for="(cell, colIndex) in row"
             :key="colIndex"
             :class="[
               cell.type,
-              cell.type === 'spot' ? (cell.isAvailable ? 'available' : 'occupied') : ''
+              cell.type === 'spot' ? cell.status.toLowerCase() : ''
             ]"
             @click="selectCell(cell)"
-          >
-            {{ cell.label }}
-          </td>
-        </tr>
+        >
+          {{ cell.label }}
+        </td>
+      </tr>
       </tbody>
     </table>
+    <div class="parking-legend">
+      <div class="legend-item">
+        <div class="color-box available"></div>
+        <span>Available</span>
+      </div>
+      <div class="legend-item">
+        <div class="color-box reserved"></div>
+        <span>Reserved</span>
+      </div>
+      <div class="legend-item">
+        <div class="color-box occupied"></div>
+        <span>Occupied</span>
+      </div>
+    </div>
   </div>
-  <pv-toast />
 </template>
 
 <style scoped>
@@ -154,14 +205,49 @@ td.spot {
 }
 
 td.spot.available {
-  background-color: #3498db;
+  background-color: #3B82F6;
+}
+
+td.spot.reserved {
+  background-color: #1a5276;
 }
 
 td.spot.occupied {
-  background-color: #2c3e50;
+  background-color: #5dade2;
 }
 
 td:hover {
   opacity: 0.7; /* Hover effect */
+}
+
+.parking-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+.color-box.available {
+  background-color: #3B82F6;
+}
+
+.color-box.reserved {
+  background-color: #1a5276;
+}
+
+.color-box.occupied {
+  background-color: #5dade2;
 }
 </style>

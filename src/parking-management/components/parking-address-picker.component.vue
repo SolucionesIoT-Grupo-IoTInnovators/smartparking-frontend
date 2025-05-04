@@ -92,6 +92,16 @@ export default {
         this.map.flyTo({ center: [lng, lat], zoom: 15 })
         this.updateLocation(lat, lng, this.address)
       }
+    },
+    previousStep() {
+      this.$emit('previous-step')
+    },
+    nextStep() {
+      this.submitted = true
+      if (this.address) {
+        this.updateLocation(this.parking.lat, this.parking.lng, this.address)
+        this.$emit('next-step')
+      }
     }
   }
 }
@@ -104,9 +114,10 @@ export default {
       <pv-float-label>
         <pv-input-text
           id="address"
-          v-model="address"
+          v-model="parking.address"
           @input="onAddressInput"
           class="w-full"
+          :class="{'p-invalid': submitted && !parking.address}"
         />
       <label for="address" class="block mb-1 font-semibold">Address</label>
       </pv-float-label>
@@ -114,6 +125,11 @@ export default {
     </div>
 
     <div ref="mapContainer" class="map"></div>
+
+    <div class="flex justify-content-between mt-4">
+      <pv-button label="Back" icon="pi pi-arrow-left" @click="previousStep"/>
+      <pv-button label="Continue" icon="pi pi-arrow-right" @click="nextStep"/>
+    </div>
   </div>
 </template>
 

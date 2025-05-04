@@ -18,4 +18,8 @@ export class ParkingService {
     getParkingById(parkingId) {
         return http.get(`${this.resourceEndPoint}/${parkingId}`);
     }
+
+    getAllParkingByOwnerId(ownerId) {
+        return http.get(`${this.resourceEndPoint}/owner/${ownerId}`);
+    }
 }

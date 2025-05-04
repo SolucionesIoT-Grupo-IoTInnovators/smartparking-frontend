@@ -4,6 +4,7 @@ import ParkingAddressPicker from "../components/parking-address-picker.component
 import {Parking} from "../model/parking.entity.js";
 import ParkingDesign from "../components/parking-design.component.vue";
 import {ParkingService} from "../services/parking.service.js";
+import {useAuthenticationStore} from "../../iam/services/authentication.store.js";
 
 const defaultStyle = { width: '400px'};
 
@@ -20,6 +21,7 @@ export default {
       size: 'default',
       parkingService: null,
       parkingSpots: [],
+      authStore: null,
     }
   },
   methods: {
@@ -45,7 +47,6 @@ export default {
       this.parkingData = new Parking({...this.parkingData, ...locationData});
     },
     handleParkingDesign(data) {
-      console.log('Diseño de estacionamiento actualizado:', data);
       this.parkingSpots = data.map(spot => {
         return {
           row: spot.row,
@@ -80,7 +81,8 @@ export default {
 
     async createParking() {
       try {
-        this.parkingData.ownerId = 1;
+        this.authStore = useAuthenticationStore();
+        this.parkingData.ownerId = this.authStore.currentUserId;
         const response = await this.parkingService.create(this.parkingData);
         const parking = new Parking(response.data);
 
@@ -125,6 +127,7 @@ export default {
           detail: 'Parking spots created successfully!',
           life: 3000
         });
+        this.$router.push({ name: 'home', params: { parkingId: parkingId }})
       } catch (error) {
         console.error("Error creating parking spots:", error);
         this.$toast.add({
@@ -170,12 +173,9 @@ export default {
       <ParkingAddressPicker
           :parking="parkingData"
           @location-changed="handleLocationChanged"
+          @previous-step="previousStep"
+          @next-step="nextStep"
       />
-
-      <div class="flex justify-content-between mt-4">
-        <pv-button label="Back" icon="pi pi-arrow-left" @click="previousStep"/>
-        <pv-button label="Continue" icon="pi pi-arrow-right" @click="nextStep"/>
-      </div>
     </div>
 
     <div v-if="currentStep === 3" class="step-component">
@@ -183,12 +183,10 @@ export default {
           :parking="parkingData"
           @parking-design="handleParkingDesign"
           @parking-values="handleParkingValues"
+          @previous-step="previousStep"
+          @finish="finish"
       />
 
-      <div class="flex justify-content-between mt-4">
-        <pv-button label="Back" icon="pi pi-arrow-left" @click="previousStep"/>
-        <pv-button label="Finish" icon="pi pi-check" @click="finish" />
-      </div>
     </div>
   </div>
 
@@ -215,7 +213,6 @@ export default {
           @click="handleDialogConfirm" />
     </template>
   </pv-dialog>
-  <pv-toast />
 </template>
 
 <style scoped>
