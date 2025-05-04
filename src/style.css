@@ -8,6 +8,21 @@
     font-family: var(--font-family), serif;
 }
 
+body, p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
 .p-component {
     font-family: var(--font-family), serif;
+}
+
+.centered-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
