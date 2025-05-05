@@ -9,22 +9,27 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
-            path: '/parking/directory/:ownerId',
-            name: 'parking-directory',
-            component: ParkingDirectoryComponent,
-            meta: {title: 'Parking Directory', layout: 'ParkingManagementLayout'}
-        },
-        {
-            path: '/home/:parkingId',
-            name: 'home',
-            component: ParkingHomeComponent,
-            meta: {title: 'Home', layout: 'ParkingManagementLayout'}
-        },
-        {
-            path: '/parking/registration',
-            name: 'parking-registration',
-            component: ParkingRegistrationComponent,
-            meta: {title: 'Parking Registration'}
+            path: '/parking',
+            children: [
+                {
+                    path: 'home/:parkingId',
+                    name: 'home',
+                    component: ParkingHomeComponent,
+                    meta: {title: 'Home', layout: 'ParkingManagementLayout'}
+                },
+                {
+                    path: 'directory/:ownerId',
+                    name: 'parking-directory',
+                    component: ParkingDirectoryComponent,
+                    meta: {title: 'Parking Directory', layout: 'ParkingManagementLayout'}
+                },
+                {
+                    path: 'registration',
+                    name: 'parking-registration',
+                    component: ParkingRegistrationComponent,
+                    meta: {title: 'Parking Registration', layout: 'ParkingManagementLayout'}
+                }
+            ]
         },
         {
             path: '/sign-in',
@@ -44,6 +49,7 @@ const router = createRouter({
         }
     ]
 });
+
 
 router.beforeEach((to, from, next) => {
     // Set the page title
