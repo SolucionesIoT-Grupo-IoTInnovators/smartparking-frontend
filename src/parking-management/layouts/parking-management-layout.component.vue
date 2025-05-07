@@ -1,11 +1,14 @@
 <script>
 import {useAuthenticationStore} from "../../iam/services/authentication.store.js";
 import {useRouter} from "vue-router";
+import SideNav from "../../public/components/side-nav.component.vue";
 
 export default {
   name: "parking-management-layout",
+  components: {SideNav},
   data() {
     return {
+      visible: true,
       authenticationStore: useAuthenticationStore(),
       router: useRouter(),
       items: [
@@ -44,6 +47,7 @@ export default {
     <pv-toolbar class="bg-primary">
       <template #start>
         <img src="../../assets/images/smartparking_logo.jpeg" alt="Logo" class="logo"/>
+        <pv-button icon="pi pi-bars" class="bg-primary" @click="visible = !visible" aria-label="Menu"/>
       </template>
       <template #center>
         <router-link :to="{ name: 'parking-directory', params: { ownerId: authenticationStore.currentUserId }}"
@@ -62,6 +66,7 @@ export default {
     </pv-toolbar>
   </div>
   <main>
+    <side-nav  :visible="visible"/>
     <slot></slot>
   </main>
   <pv-toast />
