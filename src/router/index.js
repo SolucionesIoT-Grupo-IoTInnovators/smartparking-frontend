@@ -21,13 +21,13 @@ const router = createRouter({
                     path: 'directory/:ownerId',
                     name: 'parking-directory',
                     component: ParkingDirectoryComponent,
-                    meta: {title: 'Parking Directory', layout: 'ParkingManagementLayout'}
+                    meta: {title: 'Parking Directory', layout: 'AuthLayout'}
                 },
                 {
                     path: 'registration',
                     name: 'parking-registration',
                     component: ParkingRegistrationComponent,
-                    meta: {title: 'Parking Registration', layout: 'ParkingManagementLayout'}
+                    meta: {title: 'Parking Registration', layout: 'AuthLayout'}
                 }
             ]
         },
