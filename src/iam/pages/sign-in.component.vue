@@ -30,7 +30,7 @@ export default {
 <template>
   <div class="flex flex-column justify-content-center align-items-center min-h-screen px-4">
     <div class="text-center mb-5">
-      <img src="../../assets/images/smart_parking_logo.PNG" alt="Logo" class="w-14rem h-8rem mb-3" />
+      <img src="../../assets/images/smartparking_logo.jpeg" alt="Logo" class="w-15rem h-10rem mb-3" />
       <h3 class="text-3xl m-0">Sign In to SmartParking</h3>
     </div>
 
