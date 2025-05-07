@@ -6,30 +6,18 @@ export default {
       type: Boolean,
       default: false
     },
-    links: [
-      {
-        label: 'Home',
-        icon: 'pi pi-fw pi-home',
-        to: '/home'
-      },
-      {
-        label: 'About',
-        icon: 'pi pi-fw pi-info',
-        to: '/about'
-      },
-      {
-        label: 'Contact',
-        icon: 'pi pi-fw pi-phone',
-        to: '/contact'
-      }
-    ]
-  }
+    parkingId: {
+      type: Number,
+      default: null
+    }
+  },
 }
 </script>
 
 <template>
   <div class="sidebar" :class="{ 'visible': visible }">
-    <router-link to="/reservations" class="active">Reservations</router-link>
+    <router-link :to="{ name: 'home', params: { parkingId: parkingId } }" class="nav-link" active-class="active" />
+    <router-link :to="{ name: 'reservations-data'}" class="nav-link" active-class="active" />
   </div>
 </template>
 
@@ -45,6 +33,11 @@ export default {
 .sidebar:not(.visible) {
   width: 0;
   overflow: hidden;
+}
+
+router-link {
+  color: black;
+  text-decoration: none;
 }
 
 .sidebar a,

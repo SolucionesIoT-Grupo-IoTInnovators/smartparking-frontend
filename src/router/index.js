@@ -29,14 +29,14 @@ const router = createRouter({
                     name: 'parking-registration',
                     component: ParkingRegistrationComponent,
                     meta: {title: 'Parking Registration', layout: 'AuthLayout'}
-                }
+                },
+                {
+                    path: 'reservations',
+                    name: 'reservations-data',
+                    component: ReservationsDataComponent,
+                    meta: {title: 'Reservations Data', layout: 'ParkingManagementLayout'}
+                },
             ]
-        },
-        {
-            path: '/reservations',
-            name: 'reservations-data',
-            component: ReservationsDataComponent,
-            meta: {title: 'Reservations Data', layout: 'ParkingManagementLayout'}
         },
         {
             path: '/sign-in',

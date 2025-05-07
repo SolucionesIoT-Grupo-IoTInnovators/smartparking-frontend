@@ -9,6 +9,7 @@ export default {
   data() {
     return {
       visible: true,
+      parkingId: this.$route.params.parkingId,
       authenticationStore: useAuthenticationStore(),
       router: useRouter(),
       items: [
@@ -66,7 +67,7 @@ export default {
     </pv-toolbar>
 
     <div class="content-wrapper">
-      <side-nav :visible="visible" class="side-navigation"/>
+      <side-nav :visible="visible" :parkingId="authenticationStore.currentParkingId" class="side-navigation"/>
       <div class="main-content" :class="{ 'content-expanded': !visible }">
         <slot></slot>
       </div>

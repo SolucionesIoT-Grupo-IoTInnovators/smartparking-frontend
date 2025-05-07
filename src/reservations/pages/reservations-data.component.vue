@@ -1,18 +1,15 @@
 <script>
 import ReservationsDataTable from "../components/reservations-data-table.component.vue";
+import {useAuthenticationStore} from "../../iam/services/authentication.store.js";
 
 export default {
   name: "reservations-data",
   components: {ReservationsDataTable},
   data() {
     return {
-      parkingId: 0,
+      authenticationStore: useAuthenticationStore()
     }
   },
-  async mounted() {
-    const id = localStorage.getItem("parkingId");
-    this.parkingId = Number(id);
-  }
 }
 </script>
 
@@ -20,7 +17,7 @@ export default {
   <h1 class="text-3xl font-bold underline">
     Reservations Data
   </h1>
-  <reservations-data-table :parkingId="parkingId" v-if="parkingId"/>
+  <reservations-data-table :parkingId="authenticationStore.currentParkingId" v-if="authenticationStore.currentParkingId"/>
 </template>
 
 <style scoped>

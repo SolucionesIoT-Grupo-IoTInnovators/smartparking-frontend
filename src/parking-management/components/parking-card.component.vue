@@ -11,6 +11,7 @@ export default {
   },
   methods: {
     navigateToHome(id) {
+      localStorage.setItem("parkingId", id);
       this.$router.push({ name: "home", params: { parkingId: id } });
     },
   },

@@ -14,9 +14,9 @@ export default {
     }
   },
   async mounted() {
-    this.parkingService = new ParkingService();
     const parkingId = this.$route.params.parkingId;
-    localStorage.setItem("parkingId", parkingId);
+    console.log(parkingId);
+    this.parkingService = new ParkingService();
     await this.parkingService.getParkingById(parkingId).then(response => {
       this.parking = new Parking({...response.data});
       console.log(this.parking);

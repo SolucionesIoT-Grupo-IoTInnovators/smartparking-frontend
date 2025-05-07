@@ -1,6 +1,7 @@
 export class Reservation {
     constructor({
                     id = 0,
+                    driverFullName = '',
                     driverId = 0,
                     vehiclePlate = '',
                     parkingId = 0,
@@ -12,6 +13,7 @@ export class Reservation {
                     status = '',
                 }) {
         this.id = id;
+        this.driverFullName = driverFullName;
         this.driverId = driverId;
         this.vehiclePlate = vehiclePlate;
         this.parkingId = parkingId;
