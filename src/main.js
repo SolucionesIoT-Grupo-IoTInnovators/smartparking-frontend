@@ -15,6 +15,8 @@ import ToastService from "primevue/toastservice";
 import Avatar from 'primevue/avatar';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
+import Column from 'primevue/column';
+import DataTable from 'primevue/datatable';
 import Dialog from 'primevue/dialog';
 import FileUpload from 'primevue/fileupload';
 import FloatLabel from "primevue/floatlabel";
@@ -74,6 +76,8 @@ app.use(PrimeVue, {
 app.component('pv-avatar', Avatar)
     .component('pv-button', Button)
     .component('pv-card', Card)
+    .component('pv-column', Column)
+    .component('pv-data-table', DataTable)
     .component('pv-dialog', Dialog)
     .component('pv-file-upload', FileUpload)
     .component('pv-float-label', FloatLabel)
