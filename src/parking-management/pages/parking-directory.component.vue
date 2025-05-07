@@ -15,6 +15,7 @@ export default {
     }
   },
   async mounted() {
+    localStorage.removeItem("parkingId");
     const userId = this.$route.params.ownerId;
     this.parkingService = new ParkingService();
     await this.parkingService.getAllParkingByOwnerId(userId).then(response => {

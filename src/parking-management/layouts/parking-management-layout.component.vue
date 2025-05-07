@@ -43,7 +43,7 @@ export default {
 </script>
 
 <template>
-  <div class="card">
+  <div class="layout-container">
     <pv-toolbar class="bg-primary">
       <template #start>
         <img src="../../assets/images/smartparking_logo.jpeg" alt="Logo" class="logo"/>
@@ -64,11 +64,14 @@ export default {
         </div>
       </template>
     </pv-toolbar>
+
+    <div class="content-wrapper">
+      <side-nav :visible="visible" class="side-navigation"/>
+      <div class="main-content" :class="{ 'content-expanded': !visible }">
+        <slot></slot>
+      </div>
+    </div>
   </div>
-  <main>
-    <side-nav  :visible="visible"/>
-    <slot></slot>
-  </main>
   <pv-toast />
 </template>
 
@@ -76,5 +79,53 @@ export default {
 .logo {
   width: 90px;
   height: 60px;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.side-navigation {
+  position: relative !important; /* Anula cualquier posición fija */
+  transform: none !important; /* Asegura que no haya transformaciones */
+  height: 100%;
+  transition: width 0.3s ease;
+  width: 200px;
+}
+
+.main-content {
+  flex: 1;
+  overflow: auto;
+  transition: all 0.3s ease;
+  padding: 1rem;
+}
+
+.content-expanded {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .side-navigation {
+    width: 100%;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .side-navigation.visible {
+    max-height: 300px; /* Ajusta según necesites */
+  }
 }
 </style>

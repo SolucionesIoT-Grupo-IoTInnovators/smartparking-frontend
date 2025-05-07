@@ -35,71 +35,52 @@ export default {
 
 <style scoped>
 .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
   background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
   overflow: auto;
-  transition: transform 0.3s ease;
-  transform: translateX(-100%);
+  height: 100%;
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
-.sidebar.visible {
-  transform: translateX(0);
+.sidebar:not(.visible) {
+  width: 0;
+  overflow: hidden;
 }
 
-.sidebar a {
+.sidebar a,
+.sidebar >>> router-link {
   display: block;
   color: black;
   padding: 16px;
   text-decoration: none;
 }
 
-.sidebar a.active {
+.sidebar a.active,
+.sidebar >>> router-link.active {
   background-color: #2196F3;
   color: white;
 }
 
-.sidebar a:hover:not(.active) {
+.sidebar a:hover:not(.active),
+.sidebar >>> router-link:hover:not(.active) {
   background-color: #555;
   color: white;
 }
 
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
-  transition: margin-left 0.3s ease;
-}
-
-div.content:not(.sidebar.visible) {
-  margin-left: 0;
-}
-
 @media screen and (max-width: 700px) {
   .sidebar {
-    width: 100%;
     height: auto;
-    position: relative;
   }
 
-  .sidebar.visible {
-    transform: translateY(0);
-  }
-
-  .sidebar a {
+  .sidebar a,
+  .sidebar >>> router-link {
     float: left;
-  }
-
-  div.content {
-    margin-left: 0;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .sidebar a {
+  .sidebar a,
+  .sidebar >>> router-link {
     text-align: center;
     float: none;
   }
