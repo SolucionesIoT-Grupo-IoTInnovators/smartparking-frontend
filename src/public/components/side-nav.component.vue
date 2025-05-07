@@ -16,66 +16,100 @@ export default {
 
 <template>
   <div class="sidebar" :class="{ 'visible': visible }">
-    <router-link :to="{ name: 'home', params: { parkingId: parkingId } }" class="nav-link" active-class="active" />
-    <router-link :to="{ name: 'reservations-data'}" class="nav-link" active-class="active" />
+    <router-link
+        :to="{ name: 'home', params: { parkingId: parkingId } }"
+        class="nav-link"
+        active-class="active"
+        exact
+    >
+      Home
+    </router-link>
+    <router-link
+        :to="{ name: 'reservations-data' }"
+        class="nav-link"
+        active-class="active"
+    >
+      Reservations
+    </router-link>
   </div>
 </template>
 
 <style scoped>
 .sidebar {
-  background-color: #f1f1f1;
-  overflow: auto;
-  height: 100%;
-  width: 100%;
-  transition: all 0.3s ease;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0; /* Borde sutil */
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar:not(.visible) {
-  width: 0;
-  overflow: hidden;
+.sidebar.visible {
+  transform: translateX(0);
 }
 
-router-link {
-  color: black;
-  text-decoration: none;
-}
-
-.sidebar a,
-.sidebar >>> router-link {
+.nav-link {
   display: block;
-  color: black;
-  padding: 16px;
+  color: #333333;
+  padding: 15px 20px;
   text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
 }
 
-.sidebar a.active,
-.sidebar >>> router-link.active {
+.nav-link:hover:not(.active) {
+  background-color: #f5f5f5;
+  color: #3498db;
+  border-left-color: #3498db;
+}
+
+.nav-link.active {
   background-color: #2196F3;
   color: white;
+  border-left-color: #ecf0f1;
 }
 
-.sidebar a:hover:not(.active),
-.sidebar >>> router-link:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
-@media screen and (max-width: 700px) {
+/* Responsive styles */
+@media screen and (max-width: 768px) {
   .sidebar {
-    height: auto;
-  }
-
-  .sidebar a,
-  .sidebar >>> router-link {
-    float: left;
+    width: 200px;
   }
 }
 
-@media screen and (max-width: 400px) {
-  .sidebar a,
-  .sidebar >>> router-link {
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    transform: translateX(0);
+    display: none;
+  }
+
+  .sidebar.visible {
+    display: block;
+  }
+
+  .nav-link {
+    padding: 12px 15px;
     text-align: center;
-    float: none;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .nav-link:hover:not(.active) {
+    border-left: none;
+    border-bottom-color: #3498db;
+  }
+
+  .nav-link.active {
+    border-left: none;
+    border-bottom-color: #ecf0f1;
   }
 }
 </style>
