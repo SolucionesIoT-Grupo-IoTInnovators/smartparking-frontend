@@ -18,6 +18,7 @@ import Card from 'primevue/card';
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
 import Dialog from 'primevue/dialog';
+import Drawer from 'primevue/drawer';
 import FileUpload from 'primevue/fileupload';
 import FloatLabel from "primevue/floatlabel";
 import InputNumber from "primevue/inputnumber";
@@ -79,6 +80,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-column', Column)
     .component('pv-data-table', DataTable)
     .component('pv-dialog', Dialog)
+    .component('pv-drawer', Drawer)
     .component('pv-file-upload', FileUpload)
     .component('pv-float-label', FloatLabel)
     .component('pv-input-number', InputNumber)
