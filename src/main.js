@@ -21,6 +21,8 @@ import Dialog from 'primevue/dialog';
 import Drawer from 'primevue/drawer';
 import FileUpload from 'primevue/fileupload';
 import FloatLabel from "primevue/floatlabel";
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
 import InputNumber from "primevue/inputnumber";
 import InputText from 'primevue/inputtext';
 import Menu from 'primevue/menu';
@@ -83,6 +85,8 @@ app.component('pv-avatar', Avatar)
     .component('pv-drawer', Drawer)
     .component('pv-file-upload', FileUpload)
     .component('pv-float-label', FloatLabel)
+    .component('pv-icon-field', IconField)
+    .component('pv-input-icon', InputIcon)
     .component('pv-input-number', InputNumber)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
