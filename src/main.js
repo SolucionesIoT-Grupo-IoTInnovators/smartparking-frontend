@@ -27,6 +27,7 @@ import InputNumber from "primevue/inputnumber";
 import InputText from 'primevue/inputtext';
 import Menu from 'primevue/menu';
 import Rating from 'primevue/rating';
+import Tag from 'primevue/tag';
 import Textarea from 'primevue/textarea';
 import Toast from 'primevue/toast';
 import Toolbar from 'primevue/toolbar';
@@ -91,6 +92,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
     .component('pv-rating', Rating)
+    .component('pv-tag', Tag)
     .component('pv-textarea', Textarea)
     .component('pv-toast', Toast)
     .component('pv-toolbar', Toolbar)

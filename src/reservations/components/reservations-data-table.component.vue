@@ -16,7 +16,13 @@ export default {
       reservationService: null,
       loading: true,
       error: null,
-      filters: null
+      filters: null,
+      statuses: [
+        { label: 'PENDING', value: 'PENDING' },
+        { label: 'CONFIRMED', value: 'CONFIRMED' },
+        { label: 'CANCELED', value: 'CANCELED' },
+        { label: 'COMPLETED', value: 'COMPLETED' }
+      ]
     }
   },
   methods: {
@@ -44,6 +50,18 @@ export default {
     },
     clearFilter() {
       this.initFilters();
+    },
+    getStatusLabel(status) {
+      switch (status) {
+        case 'COMPLETED':
+          return 'success';
+        case 'CANCELED':
+          return 'danger';
+        case 'PENDING':
+          return 'warning';
+        case 'CONFIRMED':
+          return 'info';
+      }
     }
   },
   created() {
@@ -57,7 +75,7 @@ export default {
 </script>
 
 <template>
-  <pv-data-table v-model:filters="filters" filterDisplay="menu" :value="reservations" sortField="date" :sortOrder="-1"
+  <pv-data-table v-model:filters="filters" resizableColumns columnResizeMode="fit" filterDisplay="menu" :value="reservations" sortField="date" :sortOrder="-1"
                  stripedRows removableSort tableStyle="min-width: 50rem" :loading="loading" :paginator="true" :rows="10"
                  :showGridlines="true">
     <template #header>
@@ -86,7 +104,11 @@ export default {
         {{ formatCurrency(slotProps.data.totalPrice) }}
       </template>
     </pv-column>
-    <pv-column field="status" header="Status" style="width: 20%"/>
+    <pv-column field="status" header="Status" style="width: 20%">
+      <template #body="slotProps">
+        <pv-tag :value="slotProps.data.status" :severity="getStatusLabel(slotProps.data.status)"/>
+      </template>
+    </pv-column>
   </pv-data-table>
 </template>
 
