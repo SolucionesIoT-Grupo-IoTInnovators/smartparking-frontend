@@ -1,11 +1,10 @@
 <script>
-import {Review} from "../models/review.entity.js";
 
 export default {
   name: "review-card",
   props: {
     review: {
-      type: Review,
+      type: Object,
       required: true
     }
   },

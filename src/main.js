@@ -21,6 +21,7 @@ import FloatLabel from "primevue/floatlabel";
 import InputNumber from "primevue/inputnumber";
 import InputText from 'primevue/inputtext';
 import Menu from 'primevue/menu';
+import ProgressSpinner from 'primevue/progressspinner';
 import Rating from 'primevue/rating';
 import Textarea from 'primevue/textarea';
 import Toast from 'primevue/toast';
@@ -80,6 +81,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-input-number', InputNumber)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
+    .component('pv-progress-spinner', ProgressSpinner)
     .component('pv-rating', Rating)
     .component('pv-textarea', Textarea)
     .component('pv-toast', Toast)
