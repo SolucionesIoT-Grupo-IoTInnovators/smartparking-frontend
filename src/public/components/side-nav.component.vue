@@ -4,7 +4,7 @@ export default {
   props: {
     visible: {
       type: Boolean,
-      default: false
+      default: true
     },
     parkingId: {
       type: Number,

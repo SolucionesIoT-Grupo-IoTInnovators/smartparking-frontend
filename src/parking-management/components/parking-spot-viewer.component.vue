@@ -184,8 +184,8 @@ table {
 }
 
 td {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border: 1px solid #bbb;
   cursor: pointer;
   text-align: center;
