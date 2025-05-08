@@ -37,22 +37,21 @@ export default {
 <style scoped>
 .sidebar {
   background-color: #ffffff;
-  border-right: 1px solid #e0e0e0; /* Borde sutil */
+  border-right: 1px solid #e0e0e0;
   height: 100vh;
   width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: transform 0.3s ease;
-  transform: translateX(-100%);
-  z-index: 1000;
+  transition: width 0.3s ease, max-height 0.3s ease;
+  overflow: hidden;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar.visible {
-  transform: translateX(0);
+  width: 0;
+  padding: 0;
+  border-right: none;
 }
 
+/* Links */
 .nav-link {
   display: block;
   color: #333333;
@@ -61,55 +60,30 @@ export default {
   font-size: 1.1rem;
   transition: all 0.3s ease;
   border-left: 4px solid transparent;
-}
-
-.nav-link:hover:not(.active) {
-  background-color: #f5f5f5;
-  color: #3498db;
-  border-left-color: #3498db;
+  white-space: nowrap;
 }
 
 .nav-link.active {
   background-color: #2196F3;
   color: white;
-  border-left-color: #ecf0f1;
 }
 
-/* Responsive styles */
+/* Mobile */
 @media screen and (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-  }
-}
-
-@media screen and (max-width: 480px) {
   .sidebar {
     width: 100%;
     height: auto;
-    position: relative;
-    transform: translateX(0);
-    display: none;
+    max-height: 0;
+    transition: max-height 0.3s ease;
   }
 
   .sidebar.visible {
-    display: block;
+    max-height: 300px;
   }
 
-  .nav-link {
-    padding: 12px 15px;
-    text-align: center;
-    border-left: none;
-    border-bottom: 3px solid transparent;
-  }
-
-  .nav-link:hover:not(.active) {
-    border-left: none;
-    border-bottom-color: #3498db;
-  }
-
-  .nav-link.active {
-    border-left: none;
-    border-bottom-color: #ecf0f1;
+  .sidebar.collapsed {
+    max-height: 0;
   }
 }
+
 </style>

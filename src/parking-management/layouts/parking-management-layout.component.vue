@@ -95,18 +95,17 @@ export default {
 }
 
 .side-navigation {
-  position: relative !important; /* Anula cualquier posición fija */
-  transform: none !important; /* Asegura que no haya transformaciones */
+  position: relative !important;
+  transform: none !important;
   height: 100%;
   transition: width 0.3s ease;
-  width: 200px;
 }
 
 .main-content {
   flex: 1;
   overflow: auto;
-  transition: all 0.3s ease;
   padding: 1rem;
+  transition: margin-left 0.3s ease;
 }
 
 .content-expanded {
