@@ -157,7 +157,7 @@ export default {
                                            'completed': step < currentStep}]">
             {{ step }}
           </div>
-          <div class="step-label mt-2">Step {{ step }}</div>
+          <div class="step-label mt-2">{{ $t('step') }} {{ step }}</div>
         </div>
       </div>
     </div>

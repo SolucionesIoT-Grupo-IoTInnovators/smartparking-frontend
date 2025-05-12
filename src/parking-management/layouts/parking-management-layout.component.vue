@@ -54,7 +54,7 @@ export default {
       <template #center>
         <router-link :to="{ name: 'parking-directory', params: { ownerId: authenticationStore.currentUserId }}"
                      class="text-white text-lg font-bold">
-          Parking Directory
+          {{ $t('parkingDirectory') }}
         </router-link>
       </template>
       <template #end>

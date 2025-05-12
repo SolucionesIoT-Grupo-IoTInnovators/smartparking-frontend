@@ -151,15 +151,15 @@ export default {
     <div class="parking-legend">
       <div class="legend-item">
         <div class="color-box available"></div>
-        <span>Available</span>
+        <span>{{ $t('available') }}</span>
       </div>
       <div class="legend-item">
         <div class="color-box reserved"></div>
-        <span>Reserved</span>
+        <span>{{ $t('reserved') }}</span>
       </div>
       <div class="legend-item">
         <div class="color-box occupied"></div>
-        <span>Occupied</span>
+        <span>{{ $t('occupied') }}</span>
       </div>
     </div>
   </div>

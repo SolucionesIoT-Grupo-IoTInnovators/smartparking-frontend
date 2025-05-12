@@ -108,7 +108,7 @@ export default {
 </script>
 
 <template>
-  <h3 class="text-4xl font-bold mb-5 text-center">Define Location</h3>
+  <h3 class="text-4xl font-bold mb-5 text-center">{{ $t('defineLocation') }}</h3>
   <div class="mapbox-picker">
     <div class="mb-3">
       <pv-float-label>
@@ -119,7 +119,7 @@ export default {
           class="w-full"
           :class="{'p-invalid': submitted && !parking.address}"
         />
-      <label for="address" class="block mb-1 font-semibold">Address</label>
+      <label for="address" class="block mb-1 font-semibold">{{ $t('address') }}</label>
       </pv-float-label>
       <small v-if="submitted && !parking.address" class="p-error">Address is required</small>
     </div>

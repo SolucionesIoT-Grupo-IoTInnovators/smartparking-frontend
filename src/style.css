@@ -21,6 +21,10 @@ a {
     text-decoration: none;
 }
 
+h1, h2, p {
+    margin: 0;
+}
+
 .p-component {
     font-family: var(--font-family), serif;
 }
