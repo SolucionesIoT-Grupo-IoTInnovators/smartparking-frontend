@@ -181,6 +181,7 @@ export default {
 table {
   border-collapse: collapse;
   margin: 0 auto;
+  width: 50%;
 }
 
 td {
