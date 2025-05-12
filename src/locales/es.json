@@ -1,3 +1,6 @@
 {
-
+  "parkingDirectory": "Parkings",
+  "parkingList": "Lista de Parkings",
+  "addParking": "Agregar Parking",
+  "viewDetails": "Ver Detalles"
 }

@@ -23,7 +23,7 @@ export default {
 <template>
   <div class="p-5">
     <div class="flex justify-content-between align-items-center mb-4">
-      <h1 class="text-4xl font-bold m-0 text-center">Parking List</h1>
+      <h1 class="text-4xl font-bold m-0 text-center">{{ $t('parkingList') }}</h1>
       <pv-button label="Add Parking" icon="pi pi-plus" @click="goToRegistration()"/>
     </div>
     <div class="grid">
