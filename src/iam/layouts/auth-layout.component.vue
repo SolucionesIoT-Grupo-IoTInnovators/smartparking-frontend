@@ -1,9 +1,11 @@
 <script>
 import {useAuthenticationStore} from "../services/authentication.store.js";
 import {useRouter} from "vue-router";
+import LanguageSwitcher from "../../public/components/language-switcher.component.vue";
 
 export default {
   name: "auth-layout",
+  components: {LanguageSwitcher},
   data() {
     return {
       authenticationStore: useAuthenticationStore(),
@@ -52,6 +54,7 @@ export default {
         </router-link>
       </template>
       <template #end>
+        <language-switcher />
         <div class="flex items-center gap-2">
           <pv-button type="button" :label="currentUsername" @click="toggle" aria-haspopup="true"
                      aria-controls="overlay_menu"

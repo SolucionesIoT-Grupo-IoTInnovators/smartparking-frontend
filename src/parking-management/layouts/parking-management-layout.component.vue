@@ -2,10 +2,11 @@
 import {useAuthenticationStore} from "../../iam/services/authentication.store.js";
 import {useRouter} from "vue-router";
 import SideNav from "../../public/components/side-nav.component.vue";
+import LanguageSwitcher from "../../public/components/language-switcher.component.vue";
 
 export default {
   name: "parking-management-layout",
-  components: {SideNav},
+  components: {LanguageSwitcher, SideNav},
   data() {
     return {
       visible: true,
@@ -57,6 +58,7 @@ export default {
         </router-link>
       </template>
       <template #end>
+        <language-switcher />
         <div class="flex items-center gap-2">
           <pv-button type="button" :label="currentUsername" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
                      icon="pi pi-user" class="bg-white text-primary"
