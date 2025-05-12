@@ -54,17 +54,17 @@ export default {
 
       <div class="mt-4">
         <div class="surface-card p-4 shadow-1 border-round h-full text-center">
-          <p class="text-lg text-gray-700 mb-3">Select a parking spot to view details.</p>
+          <p class="text-lg text-gray-700 mb-3">{{ $t('selectedSpot') }}</p>
 
           <div v-if="selectedSpot">
-            <h3 class="text-xl font-bold text-primary mb-2">Spot Details</h3>
+            <h3 class="text-xl font-bold text-primary mb-2">{{ $t('spotDetails') }}</h3>
             <p><strong>ID:</strong> {{ selectedSpot.id }}</p>
-            <p><strong>Label:</strong> {{ selectedSpot.label }}</p>
-            <p><strong>Status:</strong> {{ selectedSpot.status }}</p>
+            <p><strong>{{ $t('label') }}:</strong> {{ selectedSpot.label }}</p>
+            <p><strong>{{ $t('status') }}:</strong> {{ selectedSpot.status }}</p>
           </div>
 
           <div v-else class="text-gray-400 italic mt-4">
-            No spot selected.
+            {{ $t('noSpotSelected') }}
           </div>
         </div>
       </div>
