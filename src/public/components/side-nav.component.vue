@@ -31,6 +31,13 @@ export default {
     >
       Reservations
     </router-link>
+    <router-link
+        :to="{ name: 'parking-reviews' }"
+        class="nav-link"
+        active-class="active"
+    >
+      Reviews
+    </router-link>
   </div>
 </template>
 
