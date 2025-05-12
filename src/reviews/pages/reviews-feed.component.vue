@@ -43,7 +43,7 @@ export default {
 
 <template>
   <div class="reviews-feed">
-    <h2>Reviews from Users</h2>
+    <h2 class="text-2xl text-primary md:text-3xl lg:text-4xl mb-4"> {{ $t('userReviews') }} </h2>
 
     <div v-if="loading" class="flex justify-content-center">
       <pv-progress-spinner />
@@ -63,13 +63,16 @@ export default {
 
 <style scoped>
 .reviews-feed {
-  padding: 1rem;
   max-width: 800px;
   margin: 0 auto;
+  padding: 1rem;
 }
 
-h2 {
-  margin-bottom: 1.5rem;
-  color: var(#3B82F6);
+@media (max-width: 1020px) {
+  .reviews-feed {
+    width: 100%;
+    padding: 0.5rem;
+  }
 }
+
 </style>
