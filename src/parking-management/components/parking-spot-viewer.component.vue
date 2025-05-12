@@ -181,11 +181,12 @@ export default {
 table {
   border-collapse: collapse;
   margin: 0 auto;
+  width: 50%;
 }
 
 td {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border: 1px solid #bbb;
   cursor: pointer;
   text-align: center;
