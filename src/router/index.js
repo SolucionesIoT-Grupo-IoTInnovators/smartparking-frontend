@@ -4,6 +4,7 @@ import ParkingDirectoryComponent from "../parking-management/pages/parking-direc
 import ParkingRegistrationComponent from "../parking-management/pages/parking-registration.component.vue";
 import ParkingHomeComponent from "../parking-management/pages/parking-home.component.vue";
 import SignInComponent from "../iam/pages/sign-in.component.vue";
+import SignUpComponent from "../iam/pages/sign-up.component.vue";
 import ReviewsFeedComponent from "../reviews/pages/reviews-feed.component.vue";
 import ReservationsDataComponent from "../reservations/pages/reservations-data.component.vue";
 
@@ -50,6 +51,12 @@ const router = createRouter({
             name: 'sign-in',
             component: SignInComponent,
             meta: {title: 'Sign In', layout: 'EmptyLayout'}
+        },
+        {
+            path: '/sign-up',
+            name: 'sign-up',
+            component: SignUpComponent,
+            meta: {title: 'Sign Up', layout: 'EmptyLayout'}
         },
         {
             path: '/',
