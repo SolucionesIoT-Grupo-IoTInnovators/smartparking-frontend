@@ -1,5 +1,5 @@
 <script>
-import {Parking} from "./model/parking.entity.js";
+import {Parking} from "../model/parking.entity.js";
 
 export default {
   name: "parking-summary-card",
@@ -16,25 +16,25 @@ export default {
   <div class="flex flex-column align-items-center justify-content-start gap-2 mx-auto w-full max-w-screen-md">
     <div class="p-2 text-center w-full">
       <p class="text-3xl font-bold text-primary mb-2">{{ parking.name }}</p>
-      <p class="text-md text-gray-600">Overview of current parking status</p>
+      <p class="text-md text-gray-600">{{ $t('overView') }}</p>
     </div>
 
     <div class="grid w-full">
       <div class="col-12 md:col-4">
         <div class="surface-card p-3 shadow-1 border-round text-center h-full">
-          <p class="text-sm text-gray-500 mb-1">Total Spots</p>
+          <p class="text-sm text-gray-500 mb-1">{{ $t('totalSpots') }}</p>
           <p class="text-2xl font-bold text-primary">{{ parking.totalSpots }}</p>
         </div>
       </div>
       <div class="col-12 md:col-4">
         <div class="surface-card p-3 shadow-1 border-round text-center h-full">
-          <p class="text-sm text-gray-500 mb-1">Available</p>
+          <p class="text-sm text-gray-500 mb-1">{{ $t('available') }}</p>
           <p class="text-2xl font-bold text-green-500">{{ parking.availableSpots }}</p>
         </div>
       </div>
       <div class="col-12 md:col-4">
         <div class="surface-card p-3 shadow-1 border-round text-center h-full">
-          <p class="text-sm text-gray-500 mb-1">Occupied / Reserved</p>
+          <p class="text-sm text-gray-500 mb-1">{{ $t('occupied') }} / {{ $t('reserved') }}</p>
           <p class="text-2xl font-bold">
             {{ parking.totalSpots - parking.availableSpots }}
           </p>

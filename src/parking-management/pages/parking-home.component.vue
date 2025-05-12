@@ -2,7 +2,7 @@
 import {ParkingService} from "../services/parking.service.js";
 import ParkingSpotViewer from "../components/parking-spot-viewer.component.vue";
 import {Parking} from "../model/parking.entity.js";
-import ParkingSummaryCard from "../parking-summary-card.component.vue";
+import ParkingSummaryCard from "../components/parking-summary-card.component.vue";
 
 export default {
   name: "parking-home",
