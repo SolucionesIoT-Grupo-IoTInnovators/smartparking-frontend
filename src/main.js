@@ -33,6 +33,7 @@ import Tag from 'primevue/tag';
 import Textarea from 'primevue/textarea';
 import Toast from 'primevue/toast';
 import Toolbar from 'primevue/toolbar';
+import SelectButton from 'primevue/selectbutton';
 import SplitButton from 'primevue/splitbutton'
 import RadioButton from 'primevue/radiobutton';
 
@@ -101,6 +102,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-textarea', Textarea)
     .component('pv-toast', Toast)
     .component('pv-toolbar', Toolbar)
+    .component('pv-select-button', SelectButton)
     .component('pv-split-button', SplitButton)
     .component('pv-radio-button', RadioButton);
 
