@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <pv-select-button v-model="$i18n.locale" :options="languages">
+  <pv-select-button v-model="$i18n.locale" :options="languages" class="language-switcher">
     <template #option="slotProps">
       {{ slotProps.option.toUpperCase() }}
     </template>
@@ -19,5 +19,8 @@ export default {
 </template>
 
 <style scoped>
-
+.language-switcher {
+  margin-left: auto;
+  margin-right: 1rem;
+}
 </style>
