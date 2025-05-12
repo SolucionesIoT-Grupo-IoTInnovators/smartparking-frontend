@@ -14,8 +14,8 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold underline">
-    Reservations Data
+  <h1 class="text-2xl font-bold text-primary md:text-4xl">
+    {{ $t('reservationData') }}
   </h1>
   <reservations-data-table :parkingId="authenticationStore.currentParkingId" v-if="authenticationStore.currentParkingId"/>
 </template>
