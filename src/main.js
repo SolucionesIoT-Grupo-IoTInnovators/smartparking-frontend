@@ -26,6 +26,7 @@ import InputIcon from 'primevue/inputicon';
 import InputNumber from "primevue/inputnumber";
 import InputText from 'primevue/inputtext';
 import Menu from 'primevue/menu';
+import ProgressSpinner from 'primevue/progressspinner';
 import Rating from 'primevue/rating';
 import Tag from 'primevue/tag';
 import Textarea from 'primevue/textarea';
@@ -91,6 +92,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-input-number', InputNumber)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
+    .component('pv-progress-spinner', ProgressSpinner)
     .component('pv-rating', Rating)
     .component('pv-tag', Tag)
     .component('pv-textarea', Textarea)
