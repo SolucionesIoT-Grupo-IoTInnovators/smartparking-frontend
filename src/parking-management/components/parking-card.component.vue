@@ -26,7 +26,7 @@ export default {
     <template #title>{{ parking.name  || "No data available" }}</template>
     <template #subtitle class="mt-2">
         {{ parking.address }}
-      <pv-rating :value="parking.rating" :stars="5" readonly class="mt-2"/>
+      <pv-rating v-model="parking.rating" readonly class="mt-2"/>
     </template>
     <template #content>
       <p>Rate Per Hour: ${{ parking.ratePerHour }}</p>
