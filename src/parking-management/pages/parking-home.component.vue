@@ -52,7 +52,7 @@ export default {
         <div v-else class="text-center text-gray-500">Loading parking data...</div>
       </div>
 
-      <div class="">
+      <div class="mt-4">
         <div class="surface-card p-4 shadow-1 border-round h-full text-center">
           <p class="text-lg text-gray-700 mb-3">Select a parking spot to view details.</p>
 
