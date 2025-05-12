@@ -11,7 +11,8 @@ export const useAuthenticationStore = defineStore({
         isSignedIn: (state) => state['signedIn'],
         currentUserId: (state) => state['userId'],
         currentUsername: (state) => state['username'],
-        currentToken: () => localStorage.getItem('token')
+        currentToken: () => localStorage.getItem('token'),
+        currentParkingId: () => Number(localStorage.getItem('parkingId')),
     },
     actions: {
         checkSavedSession() {

@@ -5,7 +5,7 @@ export const authenticationInterceptor = (config) => {
     const isSignedIn = authenticationStore.isSignedIn;
     if (isSignedIn) {
         config.headers.Authorization = `Bearer ${authenticationStore.currentToken}`;
-        console.log(config);
+        //console.log(config);
     }
     return config;
 }

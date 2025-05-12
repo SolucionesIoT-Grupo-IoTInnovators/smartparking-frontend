@@ -209,11 +209,11 @@ td.spot.available {
 }
 
 td.spot.reserved {
-  background-color: #1a5276;
+  background-color: #e7de2f;
 }
 
 td.spot.occupied {
-  background-color: #5dade2;
+  background-color: red;
 }
 
 td:hover {
@@ -244,10 +244,10 @@ td:hover {
 }
 
 .color-box.reserved {
-  background-color: #1a5276;
+  background-color: #e7de2f;
 }
 
 .color-box.occupied {
-  background-color: #5dade2;
+  background-color: red;
 }
 </style>

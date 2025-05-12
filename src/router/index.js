@@ -1,10 +1,11 @@
 import {createRouter, createWebHistory} from "vue-router";
+import {authenticationGuard} from "../iam/services/authentication.guard.js";
 import ParkingDirectoryComponent from "../parking-management/pages/parking-directory.component.vue";
 import ParkingRegistrationComponent from "../parking-management/pages/parking-registration.component.vue";
 import ParkingHomeComponent from "../parking-management/pages/parking-home.component.vue";
 import SignInComponent from "../iam/pages/sign-in.component.vue";
-import {authenticationGuard} from "../iam/services/authentication.guard.js";
 import ReviewsFeedComponent from "../reviews/pages/reviews-feed.component.vue";
+import ReservationsDataComponent from "../reservations/pages/reservations-data.component.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -22,7 +23,7 @@ const router = createRouter({
                     path: 'directory/:ownerId',
                     name: 'parking-directory',
                     component: ParkingDirectoryComponent,
-                    meta: {title: 'Parking Directory', layout: 'ParkingManagementLayout'}
+                    meta: {title: 'Parking Directory', layout: 'AuthLayout'}
                 },
                 {
                     path: 'registration',
@@ -35,7 +36,13 @@ const router = createRouter({
                     name: 'parking-reviews',
                     component: ReviewsFeedComponent,
                     meta: {title: 'Parking Reviews', layout: 'ParkingManagementLayout'}
-                }
+                },
+                {
+                    path: 'reservations',
+                    name: 'reservations-data',
+                    component: ReservationsDataComponent,
+                    meta: {title: 'Reservations Data', layout: 'ParkingManagementLayout'}
+                },
             ]
         },
         {
