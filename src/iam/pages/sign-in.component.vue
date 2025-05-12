@@ -53,7 +53,18 @@ export default {
         </div>
 
         <pv-button type="submit" class="w-full font-bold uppercase">Sign In</pv-button>
+
+        <p class="text-center mt-4 bg-none">
+          Don't have an account?
+          <router-link to="/sign-up" class="text-blue-500">Sing Up</router-link>
+        </p>
       </div>
     </form>
   </div>
 </template>
+
+<style scoped>
+.bg-none {
+  background: none;
+}
+</style>
