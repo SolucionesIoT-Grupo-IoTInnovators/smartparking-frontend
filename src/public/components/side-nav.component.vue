@@ -29,14 +29,14 @@ export default {
         class="nav-link"
         active-class="active"
     >
-      Reservations
+      {{ $t('reservations') }}
     </router-link>
     <router-link
         :to="{ name: 'parking-reviews' }"
         class="nav-link"
         active-class="active"
     >
-      Reviews
+      {{ $t('reviews') }}
     </router-link>
   </div>
 </template>
