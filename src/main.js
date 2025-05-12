@@ -23,6 +23,7 @@ import FileUpload from 'primevue/fileupload';
 import FloatLabel from "primevue/floatlabel";
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
+import InputMask from 'primevue/inputmask';
 import InputNumber from "primevue/inputnumber";
 import InputText from 'primevue/inputtext';
 import Menu from 'primevue/menu';
@@ -92,6 +93,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-float-label', FloatLabel)
     .component('pv-icon-field', IconField)
     .component('pv-input-icon', InputIcon)
+    .component('pv-input-mask', InputMask)
     .component('pv-input-number', InputNumber)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
