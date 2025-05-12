@@ -75,7 +75,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="name" v-model="localParking.name" class="w-full"
                            :class="{'p-invalid': submitted && !localParking.name}"/>
-            <label for="name">Name</label>
+            <label for="name">{{ $t('name') }}</label>
           </pv-float-label>
           <small v-if="submitted && !localParking.name" class="p-error">Name is required</small>
         </div>
@@ -84,7 +84,7 @@ export default {
         <div class="field col-12 mb-5">
           <pv-float-label>
             <pv-textarea id="description" v-model="localParking.description" rows="3" autoResize class="w-full"/>
-            <label for="description">Description</label>
+            <label for="description">{{ $t('description') }}</label>
           </pv-float-label>
         </div>
 
@@ -94,12 +94,12 @@ export default {
             <pv-input-number id="ratePerHour" v-model="localParking.ratePerHour" mode="currency" currency="USD"
                              :minFractionDigits="2" class="w-full"
                              :class="{'p-invalid': submitted && !localParking.ratePerHour}"/>
-            <label for="ratePerHour">Rate Per Hour</label>
+            <label for="ratePerHour">{{ $t('ratePerHour') }}</label>
           </pv-float-label>
           <small v-if="submitted && !localParking.ratePerHour" class="p-error">Rate per hour is required</small>
         </div>
 
-        <!-- Image Upload -->
+        <!-- Image Upload
         <div class="field col-12 mb-3">
           <label for="image" class="font-bold block mb-2">Parking Image</label>
           <pv-file-upload ref="fileUploader" name="image" @select="onFileSelect" :auto="true"
@@ -110,7 +110,7 @@ export default {
             </template>
           </pv-file-upload>
 
-          <!-- Preview -->
+
           <div v-if="imageFile" class="mt-3 flex align-items-center gap-2">
             <img :src="URL.createObjectURL(imageFile)" alt="Preview" width="100"/>
             <pv-button icon="pi pi-times" @click="clearFile" severity="danger" text/>
@@ -118,8 +118,15 @@ export default {
           <div v-else-if="localParking.imageUrl" class="mt-3 flex align-items-center gap-2">
             <img :src="localParking.imageUrl" alt="Current Image" width="100"/>
           </div>
-        </div>
+        </div> -->
       </div>
+
+        <pv-float-label>
+          <pv-input-text id="imageUrl" v-model="localParking.imageUrl" class="w-full"
+                         :class="{'p-invalid': submitted && !localParking.imageUrl}"/>
+          <label for="imageUrl">{{ $t('imageUrl') }}</label>
+        </pv-float-label>
+        <small v-if="submitted && !localParking.imageUrl" class="p-error">ImageUrl is required</small>
 
       <!-- Actions -->
       <div class="flex justify-content-end gap-2 mt-4">
