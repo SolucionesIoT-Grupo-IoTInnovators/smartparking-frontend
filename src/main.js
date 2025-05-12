@@ -26,13 +26,15 @@ import InputIcon from 'primevue/inputicon';
 import InputNumber from "primevue/inputnumber";
 import InputText from 'primevue/inputtext';
 import Menu from 'primevue/menu';
+import Password from 'primevue/password';
 import ProgressSpinner from 'primevue/progressspinner';
 import Rating from 'primevue/rating';
 import Tag from 'primevue/tag';
 import Textarea from 'primevue/textarea';
 import Toast from 'primevue/toast';
 import Toolbar from 'primevue/toolbar';
-import SplitButton from 'primevue/splitbutton';
+import SplitButton from 'primevue/splitbutton'
+import RadioButton from 'primevue/radiobutton';
 
 
 import router from "./router/index.js";
@@ -92,6 +94,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-input-number', InputNumber)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
+    .component('pv-password', Password)
     .component('pv-progress-spinner', ProgressSpinner)
     .component('pv-rating', Rating)
     .component('pv-tag', Tag)
@@ -99,6 +102,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-toast', Toast)
     .component('pv-toolbar', Toolbar)
     .component('pv-split-button', SplitButton)
+    .component('pv-radio-button', RadioButton);
 
 
 app.mount('#app');
