@@ -3,4 +3,14 @@
   "parkingList": "Parking List",
   "addParking": "Add Parking",
   "viewDetails": "View Details"
+  "reservationData": "Reservation Data",
+  "userReviews": "User Reviews",
+  "step": "Step",
+  "name": "Name",
+  "description": "Description",
+  "ratePerHour": "Rate per Hour",
+  "imageUrl": "Image URL",
+  "defineLocation": "Define Location",
+  "address": "Address",
+  "designYourParking": "Design Your Parking"
 }

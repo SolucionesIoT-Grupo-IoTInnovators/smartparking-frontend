@@ -159,7 +159,7 @@ export default {
 
 <template>
   <div class="app-container">
-    <h2>Design Your Parking Lot</h2>
+    <h2 class="text-2xl md:text-3xl lg:text-4xl mb-4">{{ $t('designYourParking') }}</h2>
 
     <!-- Tool Controls -->
     <div class="controls">
