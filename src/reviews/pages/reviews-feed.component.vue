@@ -28,7 +28,7 @@ export default {
       try {
         this.loading = true;
         const reviewService = new ReviewService();
-        const response = await reviewService.getAllReviewsByParkingId(1);
+        const response = await reviewService.getAllReviewsByParkingId(this.authStore.currentParkingId);
         this.reviews = response.data;
       } catch (err) {
         this.error = 'Error fetching reviews. Please try again later.';

@@ -87,7 +87,7 @@ export default {
         const parking = new Parking(response.data);
         localStorage.setItem('parkingId', Number(parking.id));
 
-        // If we have spots to save, create them
+
         if (this.parkingSpots && this.parkingSpots.length > 0) {
           await this.createParkingSpots(parking.id);
         }
