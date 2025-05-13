@@ -94,8 +94,8 @@ export default {
           this.resetForm();
           setTimeout(() => {
             this.closeDialog();
-            this.$router.push({ name: 'reservations-data' });
-          }, 4000);
+            this.$emit('refresh');
+          }, 2000);
         } else {
           this.$toast.add({
             severity: 'error',

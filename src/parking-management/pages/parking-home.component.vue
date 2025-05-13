@@ -17,17 +17,20 @@ export default {
     }
   },
   async mounted() {
-    const parkingId = this.$route.params.parkingId;
-    console.log(parkingId);
-    this.parkingService = new ParkingService();
-    await this.parkingService.getParkingById(parkingId).then(response => {
-      this.parking = new Parking({...response.data});
-      console.log(this.parking);
-    }).catch(error => {
-      console.error("Error fetching parking:", error);
-    })
+    await this.getParkingData();
   },
   methods: {
+    async getParkingData() {
+      const parkingId = this.$route.params.parkingId;
+      console.log(parkingId);
+      this.parkingService = new ParkingService();
+      await this.parkingService.getParkingById(parkingId).then(response => {
+        this.parking = new Parking({...response.data});
+        console.log(this.parking);
+      }).catch(error => {
+        console.error("Error fetching parking:", error);
+      })
+    },
     handleSelectedSpot(data) {
       if (data == null) {
         this.selectedSpot = null;
@@ -38,13 +41,17 @@ export default {
     handleClose() {
       this.isVisible = false;
     },
+    handleRefresh() {
+      this.getParkingData();
+      window.location.reload();
+    }
   }
 }
 </script>
 
 <template>
   <div class="flex flex-column align-items-center justify-content-between mx-auto w-full max-w-screen-xl">
-    <parking-summary-card :parking="parking" v-if="parking" class="w-full max-w-screen-md" />
+    <parking-summary-card :parking="parking" v-if="parking" class="w-full max-w-screen-md"/>
 
     <div class="flex flex-column w-full align-items-center justify-content-between">
       <div class="w-full">
@@ -82,7 +89,8 @@ export default {
     </div>
   </div>
 
-  <reservation-form-dialog :isVisible="isVisible" :spot="selectedSpot" v-if="selectedSpot" @closeD="handleClose()" />
+  <reservation-form-dialog :isVisible="isVisible" :spot="selectedSpot" v-if="selectedSpot" @closeD="handleClose()"
+                           @refresh="handleRefresh"/>
 </template>
 
 <style scoped>
