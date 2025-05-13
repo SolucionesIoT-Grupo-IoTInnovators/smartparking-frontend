@@ -73,7 +73,7 @@ export default {
     async onSubmitForm() {
       this.authStore = useAuthenticationStore();
       this.reservation.driverId = 2;
-      this.reservation.parkingId = this.authStore.currentParkingId;
+      this.reservation.parkingId = Number(localStorage.getItem('parkingId'));
       this.reservation.parkingSpotId = this.spot.id;
       this.reservation.date = new Date();
 
@@ -94,7 +94,7 @@ export default {
           this.resetForm();
           setTimeout(() => {
             this.closeDialog();
-            this.$router.push('/reservations');
+            this.$router.push({ name: 'reservations-data' });
           }, 4000);
         } else {
           this.$toast.add({

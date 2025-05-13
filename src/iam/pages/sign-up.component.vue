@@ -55,7 +55,7 @@ export default {
       };
       try {
         const response = await this.authenticationService.signUpDriver(driverForm);
-        if (response.status === 200) {
+        if (response.status === 201) {
           this.$toast.add({
             severity: 'success',
             summary: 'Success',

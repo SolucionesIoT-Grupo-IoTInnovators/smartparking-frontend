@@ -85,9 +85,8 @@ export default {
         this.parkingData.ownerId = this.authStore.currentUserId;
         const response = await this.parkingService.create(this.parkingData);
         const parking = new Parking(response.data);
-        localStorage.setItem('parkingId', Number(parking.id));
 
-
+        // If we have spots to save, create them
         if (this.parkingSpots && this.parkingSpots.length > 0) {
           await this.createParkingSpots(parking.id);
         }
@@ -128,6 +127,7 @@ export default {
           detail: 'Parking spots created successfully!',
           life: 3000
         });
+        localStorage.setItem('parkingId', parkingId);
         this.$router.push({ name: 'home', params: { parkingId: parkingId }})
       } catch (error) {
         console.error("Error creating parking spots:", error);
