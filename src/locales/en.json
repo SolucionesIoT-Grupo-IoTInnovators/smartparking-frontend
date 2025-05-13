@@ -24,5 +24,13 @@
   "imageUrl": "Image URL",
   "defineLocation": "Define Location",
   "address": "Address",
-  "designYourParking": "Design Your Parking"
+  "designYourParking": "Design Your Parking",
+  "vehiclePlate": "Vehicle Plate",
+  "vehiclePlateRequired": "Vehicle plate is required",
+  "register": "Register",
+  "startTime": "Start Time",
+  "startTimeRequired": "Start time is required",
+  "endTime": "End Time",
+  "endTimeRequired": "End time is required",
+  "cancel": "Cancel"
 }

@@ -3,15 +3,17 @@ import {ParkingService} from "../services/parking.service.js";
 import ParkingSpotViewer from "../components/parking-spot-viewer.component.vue";
 import {Parking} from "../model/parking.entity.js";
 import ParkingSummaryCard from "../components/parking-summary-card.component.vue";
+import ReservationFormDialog from "../../reservations/components/reservation-form-dialog.component.vue";
 
 export default {
   name: "parking-home",
-  components: {ParkingSummaryCard, ParkingSpotViewer},
+  components: {ReservationFormDialog, ParkingSummaryCard, ParkingSpotViewer},
   data() {
     return {
       parkingService: null,
       parking: null,
       selectedSpot: null,
+      isVisible: false
     }
   },
   async mounted() {
@@ -32,7 +34,10 @@ export default {
         return;
       }
       this.selectedSpot = data;
-    }
+    },
+    handleClose() {
+      this.isVisible = false;
+    },
   }
 }
 </script>
@@ -61,6 +66,12 @@ export default {
             <p><strong>ID:</strong> {{ selectedSpot.id }}</p>
             <p><strong>{{ $t('label') }}:</strong> {{ selectedSpot.label }}</p>
             <p><strong>{{ $t('status') }}:</strong> {{ selectedSpot.status }}</p>
+            <pv-button
+                label="Reserve"
+                icon="pi pi-check"
+                class="p-button-primary mt-3"
+                @click="isVisible = true"
+            />
           </div>
 
           <div v-else class="text-gray-400 italic mt-4">
@@ -70,6 +81,8 @@ export default {
       </div>
     </div>
   </div>
+
+  <reservation-form-dialog :isVisible="isVisible" :spot="selectedSpot" v-if="selectedSpot" @closeD="handleClose()" />
 </template>
 
 <style scoped>
