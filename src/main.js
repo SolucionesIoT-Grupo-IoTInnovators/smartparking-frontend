@@ -16,6 +16,7 @@ import Avatar from 'primevue/avatar';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Column from 'primevue/column';
+import Chart from 'primevue/chart';
 import DataTable from 'primevue/datatable';
 import Dialog from 'primevue/dialog';
 import Drawer from 'primevue/drawer';
@@ -86,6 +87,7 @@ app.component('pv-avatar', Avatar)
     .component('pv-button', Button)
     .component('pv-card', Card)
     .component('pv-column', Column)
+    .component('pv-chart', Chart)
     .component('pv-data-table', DataTable)
     .component('pv-dialog', Dialog)
     .component('pv-drawer', Drawer)
