@@ -21,7 +21,7 @@ export default {
 <template>
   <pv-card class="w-full h-full" style="overflow: hidden">
     <template #header>
-      <img :src="parking.imageUrl" alt="Parking Image" class="img-fluid"/>
+      <img :src="parking.imageUrl" alt="Parking Image" class="w-20rem h-20rem object-cover" />
     </template>
     <template #title>{{ parking.name  || "No data available" }}</template>
     <template #subtitle class="mt-2">

@@ -85,6 +85,7 @@ export default {
         this.parkingData.ownerId = this.authStore.currentUserId;
         const response = await this.parkingService.create(this.parkingData);
         const parking = new Parking(response.data);
+        localStorage.setItem('parkingId', Number(parking.id));
 
         // If we have spots to save, create them
         if (this.parkingSpots && this.parkingSpots.length > 0) {
