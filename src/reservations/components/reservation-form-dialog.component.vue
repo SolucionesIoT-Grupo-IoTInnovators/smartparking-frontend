@@ -93,7 +93,8 @@ export default {
           });
           this.resetForm();
           setTimeout(() => {
-            this.visible = false;
+            this.closeDialog();
+            this.$router.push('/reservations');
           }, 4000);
         } else {
           this.$toast.add({
