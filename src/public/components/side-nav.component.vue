@@ -53,7 +53,6 @@ export default {
 }
 
 .sidebar.visible {
-  width: 0;
   padding: 0;
   border-right: none;
 }
@@ -76,11 +75,10 @@ export default {
 }
 
 /* Mobile */
-@media screen and (max-width: 768px) {
+@media screen and (width: 768px) {
   .sidebar {
     width: 100%;
     height: auto;
-    max-height: 0;
     transition: max-height 0.3s ease;
   }
 

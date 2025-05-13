@@ -79,19 +79,19 @@ export default {
                  stripedRows removableSort tableStyle="min-width: 50rem" :loading="loading" :paginator="true" :rows="10"
                  :showGridlines="true">
     <template #header>
-      <div class="flex justify-content-between">
-        <pv-button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()"/>
+    <div class="flex justify-content-between">
+      <pv-button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()"/>
+      <pv-icon-field>
         <pv-icon-field>
-          <pv-icon-field>
-            <pv-input-icon>
-              <i class="pi pi-search"/>
-            </pv-input-icon>
-            <pv-input-text v-model="filters['global'].value" placeholder="Keyword Search"/>
-          </pv-icon-field>
+          <pv-input-icon>
+            <i class="pi pi-search"/>
+          </pv-input-icon>
+          <pv-input-text v-model="filters['global'].value" placeholder="Keyword Search"/>
         </pv-icon-field>
-        <pv-button icon="pi pi-refresh" rounded raised label="Refresh" @click="refreshData"/>
-      </div>
-    </template>
+      </pv-icon-field>
+      <pv-button icon="pi pi-refresh" rounded raised label="Refresh" @click="refreshData"/>
+    </div>
+  </template>
     <template #empty> No data found.</template>
     <template #loading> Loading data. Please wait.</template>
     <pv-column field="date" header="Date" :sortable="true " style="width: 20%"/>

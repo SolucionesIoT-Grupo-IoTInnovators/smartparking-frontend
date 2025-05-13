@@ -114,7 +114,34 @@ export default {
   margin-left: 0;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .side-navigation {
+    width: 100%;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .side-navigation.visible {
+    max-height: 300px; /* Ajusta según necesites */
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .logo {
+    width: 60px;
+    height: 40px;
+  }
+
+  .layout-container {
+    flex-direction: column;
+  }
+
   .content-wrapper {
     flex-direction: column;
   }
