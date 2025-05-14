@@ -10,6 +10,7 @@ import ReservationsDataComponent from "../reservations/pages/reservations-data.c
 import ParkingDashboardComponent from "../dashboard-and-analytics/pages/parking-dashboard.component.vue";
 import ParkingCreateAndEditComponent from "../parking-management/components/parking-create-and-edit.component.vue";
 import ParkingProfileComponent from "../parking-management/pages/parking-profile.component.vue";
+import OwnerProfileComponent from "../profile-management/pages/owner-profile.component.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -60,6 +61,12 @@ const router = createRouter({
                     meta: {title: 'Parking Dashboard', layout: 'ParkingManagementLayout'}
                 }
             ]
+        },
+        {
+          path: '/profile/:ownerId',
+            name: 'owner-profile',
+            component: OwnerProfileComponent,
+            meta: {title: 'Owner Profile', layout: 'AuthLayout'}
         },
         {
             path: '/sign-in',

@@ -15,6 +15,13 @@ export default {
       router: useRouter(),
       items: [
         {
+          label: 'Profile',
+          icon: 'pi pi-fw pi-user',
+          command: () => {
+            this.router.push({ name: 'owner-profile', params: { ownerId: this.authenticationStore.currentUserId } });
+          }
+        },
+        {
           label: 'Sign Out',
           icon: 'pi pi-fw pi-sign-out',
           command: () => {
