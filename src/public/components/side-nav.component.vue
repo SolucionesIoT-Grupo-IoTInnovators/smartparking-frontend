@@ -38,6 +38,13 @@ export default {
     >
       {{ $t('reviews') }}
     </router-link>
+    <router-link
+        :to="{ name: 'dashboard' }"
+        class="nav-link"
+        active-class="active"
+    >
+      Dashboard
+    </router-link>
   </div>
 </template>
 

@@ -7,6 +7,7 @@ import SignInComponent from "../iam/pages/sign-in.component.vue";
 import SignUpComponent from "../iam/pages/sign-up.component.vue";
 import ReviewsFeedComponent from "../reviews/pages/reviews-feed.component.vue";
 import ReservationsDataComponent from "../reservations/pages/reservations-data.component.vue";
+import ParkingDashboardComponent from "../dashboard-and-analytics/pages/parking-dashboard.component.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -44,6 +45,12 @@ const router = createRouter({
                     component: ReservationsDataComponent,
                     meta: {title: 'Reservations Data', layout: 'ParkingManagementLayout'}
                 },
+                {
+                    path: 'dashboard',
+                    name: 'dashboard',
+                    component: ParkingDashboardComponent,
+                    meta: {title: 'Parking Dashboard', layout: 'ParkingManagementLayout'}
+                }
             ]
         },
         {
