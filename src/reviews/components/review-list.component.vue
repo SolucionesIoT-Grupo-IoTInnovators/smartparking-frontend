@@ -14,13 +14,24 @@ export default {
 </script>
 
 <template>
-  <div class="grid gap-4 align-items-center justify-content-center w-full">
-    <div v-for="review in reviews" :key="review.id" class="p-4 border-round shadow-2 bg-white">
-      <review-card :review="review" class="w-full col-12 md:col-6 "/>
+  <div class="grid">
+    <div v-for="review in reviews" :key="review.id" class="col-12 p-2">
+      <div class="p-3 border-round shadow-2 bg-white">
+        <review-card :review="review"/>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+/* Estilos adicionales para mejorar la apariencia en dispositivos móviles */
+@media screen and (max-width: 576px) {
+  .grid {
+    margin: 0;
+  }
 
+  .col-12 {
+    padding: 0.5rem !important;
+  }
+}
 </style>
