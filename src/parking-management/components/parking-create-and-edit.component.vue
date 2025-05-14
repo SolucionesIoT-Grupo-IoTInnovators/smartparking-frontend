@@ -50,10 +50,15 @@ export default {
       }
     },
     isFormValid() {
-      return !!this.localParking.name &&
+      if (this.localParking.id) {
+        return !!this.localParking.name &&
           this.localParking.ratePerHour > 0 &&
           !!this.localParking.address &&
           !!this.localParking.imageUrl;
+      }
+      return !!this.localParking.name &&
+        this.localParking.ratePerHour > 0 &&
+        !!this.localParking.imageUrl;
     },
     onFileSelect(event) {
       this.imageFile = event.files[0];
@@ -102,7 +107,7 @@ export default {
         </div>
 
         <!-- Address -->
-        <div class="field col-12 mb-5">
+        <div class="field col-12 mb-5" v-if="localParking.id">
           <pv-float-label>
             <pv-input-text id="address" v-model="localParking.address" class="w-full"
                            :class="{'p-invalid': submitted && !localParking.address}"/>
