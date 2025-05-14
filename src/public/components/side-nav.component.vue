@@ -45,6 +45,13 @@ export default {
     >
       Dashboard
     </router-link>
+    <router-link
+        :to="{ name: 'parking-profile' }"
+        class="nav-link"
+        active-class="active"
+    >
+      {{ $t('parkingProfile') }}
+    </router-link>
   </div>
 </template>
 

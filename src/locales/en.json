@@ -32,5 +32,6 @@
   "startTimeRequired": "Start time is required",
   "endTime": "End Time",
   "endTimeRequired": "End time is required",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "parkingProfile": "Parking Profile"
 }
