@@ -8,6 +8,8 @@ import SignUpComponent from "../iam/pages/sign-up.component.vue";
 import ReviewsFeedComponent from "../reviews/pages/reviews-feed.component.vue";
 import ReservationsDataComponent from "../reservations/pages/reservations-data.component.vue";
 import ParkingDashboardComponent from "../dashboard-and-analytics/pages/parking-dashboard.component.vue";
+import ParkingCreateAndEditComponent from "../parking-management/components/parking-create-and-edit.component.vue";
+import ParkingProfileComponent from "../parking-management/pages/parking-profile.component.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,6 +22,12 @@ const router = createRouter({
                     name: 'home',
                     component: ParkingHomeComponent,
                     meta: {title: 'Home', layout: 'ParkingManagementLayout'}
+                },
+                {
+                    path: 'profile',
+                    name: 'parking-profile',
+                    component: ParkingProfileComponent,
+                    meta: {title: 'Parking Profile', layout: 'ParkingManagementLayout'}
                 },
                 {
                     path: 'directory/:ownerId',
@@ -70,9 +78,9 @@ const router = createRouter({
             redirect: () => {
                 const userId = localStorage.getItem('userId');
                 if (!userId) {
-                    return { name: 'sign-in' };
+                    return {name: 'sign-in'};
                 }
-                return { name: 'parking-directory', params: { ownerId: userId } };
+                return {name: 'parking-directory', params: {ownerId: userId}};
             }
         }
     ]
