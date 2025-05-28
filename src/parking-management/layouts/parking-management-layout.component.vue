@@ -55,8 +55,8 @@ export default {
   <div class="layout-container">
     <pv-toolbar class="bg-primary">
       <template #start>
-        <img src="../../assets/images/smartparking_logo.jpeg" alt="Logo" class="logo"/>
         <pv-button icon="pi pi-bars" class="bg-primary" @click="visible = !visible" aria-label="Menu"/>
+        <img src="../../assets/images/smartparking_logo.png" alt="Logo" class="logo"/>
       </template>
       <template #center>
         <router-link :to="{ name: 'parking-directory', params: { ownerId: authenticationStore.currentUserId }}"
@@ -87,7 +87,6 @@ export default {
 
 <style scoped>
 .logo {
-  width: 90px;
   height: 60px;
 }
 
@@ -141,7 +140,6 @@ export default {
 /* Responsive for mobile */
 @media (max-width: 768px) {
   .logo {
-    width: 60px;
     height: 40px;
   }
 

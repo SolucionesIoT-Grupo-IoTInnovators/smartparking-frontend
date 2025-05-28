@@ -30,7 +30,7 @@ export default {
 <template>
   <div class="flex flex-column justify-content-center align-items-center min-h-screen px-4">
     <div class="text-center mb-5">
-      <img src="../../assets/images/smartparking_logo.jpeg" alt="Logo" class="w-15rem h-10rem mb-3" />
+      <img src="../../assets/images/smartparking_logo.png" alt="Logo" class="w-15rem mb-3 surface-card p-2" />
       <h3 class="text-3xl m-0">Sign In to SmartParking</h3>
     </div>
 
@@ -56,7 +56,7 @@ export default {
 
         <p class="text-center mt-4 bg-none">
           Don't have an account?
-          <router-link to="/sign-up" class="text-blue-500">Sing Up</router-link>
+          <router-link to="/sign-up" class="text-blue-500">Sign Up</router-link>
         </p>
       </div>
     </form>

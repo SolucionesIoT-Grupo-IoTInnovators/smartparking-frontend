@@ -52,7 +52,7 @@ export default {
   <div class="card">
     <pv-toolbar class="bg-primary">
       <template #start>
-        <img src="../../assets/images/smartparking_logo.jpeg" alt="Logo" class="logo"/>
+        <img src="../../assets/images/smartparking_logo.png" alt="Logo" class="logo"/>
       </template>
       <template #center>
         <router-link :to="{ name: 'parking-directory', params: { ownerId: authenticationStore.currentUserId }}"
@@ -80,7 +80,6 @@ export default {
 
 <style scoped>
 .logo {
-  width: 90px;
   height: 60px;
 }
 </style>
