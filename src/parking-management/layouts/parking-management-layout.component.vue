@@ -56,11 +56,13 @@ export default {
     <pv-toolbar class="bg-primary">
       <template #start>
         <pv-button icon="pi pi-bars" class="bg-primary" @click="visible = !visible" aria-label="Menu"/>
-        <img src="../../assets/images/smartparking_logo.png" alt="Logo" class="logo"/>
+        <router-link :to="{ name: 'parking-directory', params: { ownerId: authenticationStore.currentUserId }}">
+          <img src="../../assets/images/smartparking_logo.png" alt="Logo" class="logo"/>
+        </router-link>
       </template>
       <template #center>
         <router-link :to="{ name: 'parking-directory', params: { ownerId: authenticationStore.currentUserId }}"
-                     class="text-white text-lg font-bold">
+                     class="text-white text-lg font-bold hidden md:block">
           {{ $t('parkingDirectory') }}
         </router-link>
       </template>
