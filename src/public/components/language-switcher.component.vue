@@ -23,4 +23,8 @@ export default {
   margin-left: auto;
   margin-right: 1rem;
 }
+.p-selectbutton {
+  height: 5vh;
+  width: 6rem;
+}
 </style>

@@ -84,4 +84,12 @@ export default {
 .logo {
   height: 60px;
 }
+.p-button{
+  height: 5vh;
+}
+@media (max-width: 768px) {
+  .logo {
+    height: 5vh;
+  }
+}
 </style>

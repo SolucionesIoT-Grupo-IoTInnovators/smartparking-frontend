@@ -122,7 +122,13 @@ export default {
   margin-left: 0;
 }
 
+.p-button{
+  height: 5vh;
+}
 @media screen and (width: 768px) {
+  .logo {
+    height: 5vh;
+  }
   .content-wrapper {
     flex-direction: column;
   }
@@ -141,10 +147,6 @@ export default {
 
 /* Responsive for mobile */
 @media (max-width: 768px) {
-  .logo {
-    height: 40px;
-  }
-
   .layout-container {
     flex-direction: column;
   }
