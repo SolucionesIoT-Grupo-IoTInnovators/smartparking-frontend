@@ -251,4 +251,10 @@ td:hover {
 .color-box.occupied {
   background-color: red;
 }
+
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+}
 </style>
