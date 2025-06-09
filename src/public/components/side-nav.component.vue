@@ -22,21 +22,21 @@ export default {
         active-class="active"
         exact
     >
-      Home
+      {{ $t('sidebar.home') }}
     </router-link>
     <router-link
         :to="{ name: 'reservations-data' }"
         class="nav-link"
         active-class="active"
     >
-      {{ $t('reservations') }}
+      {{ $t('sidebar.reservations') }}
     </router-link>
     <router-link
         :to="{ name: 'parking-reviews' }"
         class="nav-link"
         active-class="active"
     >
-      {{ $t('reviews') }}
+      {{ $t('sidebar.reviews') }}
     </router-link>
     <router-link
         :to="{ name: 'dashboard' }"
@@ -50,7 +50,7 @@ export default {
         class="nav-link"
         active-class="active"
     >
-      {{ $t('parkingProfile') }}
+      {{ $t('sidebar.parkingProfile') }}
     </router-link>
   </div>
 </template>

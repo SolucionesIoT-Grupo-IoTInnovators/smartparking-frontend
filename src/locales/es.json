@@ -57,8 +57,12 @@
     "status": "Estado",
     "button": "Reservar"
   },
-  "reservations": "Reservas",
-  "reviews": "Reseñas",
+  "sidebar": {
+    "home": "Inicio",
+    "reservations": "Reservas",
+    "reviews": "Reseñas",
+    "parkingProfile": "Perfil del Parking"
+  },
   "reservationData": "Reservas",
   "userReviews": "Reseñas de Usuarios",
   "step": "Paso",
@@ -76,6 +80,5 @@
   "endTime": "Hora de Fin",
   "startTimeRequired": "La hora de inicio es obligatoria",
   "endTimeRequired": "La hora de fin es obligatoria",
-  "cancel": "Cancelar",
-  "parkingProfile": "Perfil del Parking"
+  "cancel": "Cancelar"
 }

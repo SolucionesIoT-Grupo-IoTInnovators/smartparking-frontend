@@ -57,8 +57,12 @@
     "status": "Status",
     "button": "Reserve"
   },
-  "reservations": "Reservations",
-  "reviews": "Reviews",
+  "sidebar": {
+    "home": "Home",
+    "reservations": "Reservations",
+    "reviews": "Reviews",
+    "parkingProfile": "Parking profile"
+  },
   "reservationData": "Reservation Data",
   "userReviews": "User Reviews",
   "step": "Step",
@@ -76,6 +80,5 @@
   "startTimeRequired": "Start time is required",
   "endTime": "End Time",
   "endTimeRequired": "End time is required",
-  "cancel": "Cancel",
-  "parkingProfile": "Parking Profile"
+  "cancel": "Cancel"
 }
