@@ -33,7 +33,7 @@ export default {
       <p class="mt-2">{{ parking.availableSpots }} / {{ parking.totalSpots }}</p>
     </template>
     <template #footer>
-      <pv-button label="View Details" icon="pi pi-eye" class="w-full" @click="navigateToHome(parking.id)"/>
+      <pv-button :label="$t('parkingList.viewDetails')" icon="pi pi-eye" class="w-full" @click="navigateToHome(parking.id)"/>
     </template>
   </pv-card>
 </template>

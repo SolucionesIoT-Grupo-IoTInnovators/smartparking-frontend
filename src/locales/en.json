@@ -35,9 +35,12 @@
     "signInLink": "Sign In"
   },
   "parkingDirectory": "Parking Directory",
-  "parkingList": "Parking List",
-  "addParking": "Add Parking",
-  "viewDetails": "View Details",
+  "parkingList": {
+    "title": "Parking List",
+    "noParking": "No parking available",
+    "addParking": "Add Parking",
+    "viewDetails": "View Details"
+  },
   "overView": "Overview of current parking status",
   "totalSpots": "Total Spots",
   "available": "Available",

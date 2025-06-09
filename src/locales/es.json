@@ -35,9 +35,12 @@
     "signInLink": "Iniciar Sesión"
   },
   "parkingDirectory": "Parkings",
-  "parkingList": "Lista de Parkings",
-  "addParking": "Agregar Parking",
-  "viewDetails": "Ver Detalles",
+  "parkingList":{
+    "title": "Lista de Parkings",
+    "noParking": "No hay parkings disponibles",
+    "addParking": "Agregar Parking",
+    "viewDetails": "Ver Detalles"
+  },
   "overView": "Resumen del estado actual del parking",
   "totalSpots": "Total de Plazas",
   "available": "Disponibles",
