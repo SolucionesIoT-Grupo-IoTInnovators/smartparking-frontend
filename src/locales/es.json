@@ -63,7 +63,19 @@
     "reviews": "Reseñas",
     "parkingProfile": "Perfil del Parking"
   },
-  "reservationData": "Reservas",
+  "reservationData": {
+    "title": "Datos de Reserva",
+    "search": "Buscar",
+    "clear": "Limpiar",
+    "refresh": "Actualizar",
+    "date": "Fecha",
+    "driverFullName": "Nombre Completo del Conductor",
+    "vehiclePlate": "Matrícula del Vehículo",
+    "startTime": "Hora de Inicio",
+    "endTime": "Hora de Fin",
+    "totalPrice": "Precio Total",
+    "status": "Estado"
+  },
   "userReviews": "Reseñas de Usuarios",
   "step": "Paso",
   "name": "Nombre",

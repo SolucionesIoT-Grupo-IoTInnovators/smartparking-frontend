@@ -63,7 +63,19 @@
     "reviews": "Reviews",
     "parkingProfile": "Parking profile"
   },
-  "reservationData": "Reservation Data",
+  "reservationData": {
+    "title": "Reservation Data",
+    "search": "Keyword search",
+    "clear": "Clear",
+    "refresh": "Refresh",
+    "date": "Date",
+    "driverFullName": "Driver Full Name",
+    "vehiclePlate": "Vehicle Plate",
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "totalPrice": "Total Price",
+    "status": "Status"
+  },
   "userReviews": "User Reviews",
   "step": "Step",
   "name": "Name",

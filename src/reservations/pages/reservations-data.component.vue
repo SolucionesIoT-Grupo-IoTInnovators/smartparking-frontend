@@ -15,7 +15,7 @@ export default {
 
 <template>
   <h1 class="text-2xl font-bold text-primary md:text-4xl">
-    {{ $t('reservationData') }}
+    {{ $t('reservationData.title') }}
   </h1>
   <reservations-data-table :parkingId="authenticationStore.currentParkingId" v-if="authenticationStore.currentParkingId"/>
 </template>
