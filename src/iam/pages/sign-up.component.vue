@@ -151,7 +151,7 @@ export default {
 <template>
   <div class="flex justify-content-center align-items-center min-h-screen">
     <div class="w-full max-w-2xl p-5 surface-card shadow-2 border-round">
-      <h1 class="text-center text-2xl font-bold mb-5">Create an Account</h1>
+      <h1 class="text-center text-2xl font-bold mb-5">{{ $t("sign-up.title") }}</h1>
 
       <form @submit.prevent="submitForm" class="w-full">
         <!-- Full Name & Email -->
@@ -159,17 +159,17 @@ export default {
           <div class="field col-12 md:col-6">
             <pv-float-label>
               <pv-input-text id="fullName" v-model="form.fullName" class="w-full"/>
-              <label for="fullName">Full Name</label>
+              <label for="fullName">{{ $t("sign-up.name") }}</label>
             </pv-float-label>
-            <small v-if="submitted && !form.fullName" class="p-error">Full Name is required.</small>
+            <small v-if="submitted && !form.fullName" class="p-error">{{ $t("sign-up.nameRequired") }}</small>
           </div>
 
           <div class="field col-12 md:col-6">
             <pv-float-label>
               <pv-input-text id="email" v-model="form.email" class="w-full"/>
-              <label for="email">Email</label>
+              <label for="email">{{ $t("sign-up.email") }}</label>
             </pv-float-label>
-            <small v-if="submitted && !form.email" class="p-error">Email is required.</small>
+            <small v-if="submitted && !form.email" class="p-error">{{ $t("sign-up.emailRequired") }}</small>
           </div>
         </div>
 
@@ -178,18 +178,18 @@ export default {
           <div class="field col-12 md:col-6">
             <pv-float-label>
               <pv-password id="password" v-model="form.password" toggleMask class="w-full" inputClass="w-full"/>
-              <label for="password">Password</label>
+              <label for="password">{{ $t("sign-up.password") }}</label>
             </pv-float-label>
-            <small v-if="submitted && !form.password" class="p-error">Password is required.</small>
+            <small v-if="submitted && !form.password" class="p-error">{{ $t("sign-up.passwordRequired") }}</small>
           </div>
 
           <div class="field col-12 md:col-6">
             <pv-float-label>
               <pv-password id="confirmPassword" v-model="form.confirmPassword" toggleMask class="w-full" inputClass="w-full"/>
-              <label for="confirmPassword">Confirm Password</label>
+              <label for="confirmPassword">{{ $t("sign-up.confirmPassword") }}</label>
             </pv-float-label>
             <small v-if="submitted && form.confirmPassword !== form.password" class="p-error">
-              Passwords must match.
+              {{ $t("sign-up.passwordsMatch") }}
             </small>
           </div>
         </div>
@@ -199,17 +199,17 @@ export default {
           <div class="field col-12 md:col-6">
             <pv-float-label>
               <pv-input-text id="city" v-model="form.city" class="w-full"/>
-              <label for="city">City</label>
+              <label for="city">{{ $t("sign-up.city") }}</label>
             </pv-float-label>
-            <small v-if="submitted && !form.city" class="p-error">City is required.</small>
+            <small v-if="submitted && !form.city" class="p-error">{{ $t("sign-up.cityRequired") }}</small>
           </div>
 
           <div class="field col-12 md:col-6">
             <pv-float-label>
               <pv-input-text id="country" v-model="form.country" class="w-full"/>
-              <label for="country">Country</label>
+              <label for="country">{{ $t("sign-up.country") }}</label>
             </pv-float-label>
-            <small v-if="submitted && !form.country" class="p-error">Country is required.</small>
+            <small v-if="submitted && !form.country" class="p-error">{{ $t("sign-up.countryRequired") }}</small>
           </div>
         </div>
 
@@ -217,46 +217,46 @@ export default {
         <div class="field mb-4">
           <pv-float-label>
             <pv-input-text id="phone" v-model="form.phone" class="w-full" maxlength="9"/>
-            <label for="phone">Phone</label>
+            <label for="phone">{{ $t("sign-up.phone") }}</label>
           </pv-float-label>
-          <small v-if="submitted && !form.phone" class="p-error">Phone is required.</small>
+          <small v-if="submitted && !form.phone" class="p-error">{{ $t("sign-up.phoneRequired") }}</small>
         </div>
 
         <!-- Role -->
         <div class="field-radiobutton mb-4">
           <pv-radio-button inputId="role1" name="role" value="driver" v-model="form.role"/>
-          <label for="role1" class="mr-4">Driver</label>
+          <label for="role1" class="mr-4">{{ $t("sign-up.roleDriver") }}</label>
           <pv-radio-button inputId="role2" name="role" value="owner" v-model="form.role"/>
-          <label for="role2">Owner</label>
+          <label for="role2">{{ $t("sign-up.roleOwner") }}</label>
         </div>
 
         <!-- Conditional Fields -->
         <div v-if="form.role === 'driver'" class="mb-4">
           <pv-float-label>
             <pv-input-text id="dni" v-model="form.dni" class="w-full" maxlength="8"/>
-            <label for="dni">DNI number</label>
+            <label for="dni">{{ $t("sign-up.dni") }}</label>
           </pv-float-label>
         </div>
 
         <div v-if="form.role === 'owner'" class="mb-4">
           <pv-float-label class="mt-5">
             <pv-input-text id="companyName" v-model="form.companyName" class="w-full"/>
-            <label for="companyName">Company Name</label>
+            <label for="companyName">{{ $t("sign-up.companyName") }}</label>
           </pv-float-label>
 
           <pv-float-label class="mt-5">
             <pv-input-text id="ruc" v-model="form.ruc" class="w-full" maxlength="11"/>
-            <label for="ruc">RUC number</label>
+            <label for="ruc">{{ $t("sign-up.RUC") }}</label>
           </pv-float-label>
         </div>
 
         <!-- Submit -->
-        <pv-button label="Sign Up" type="submit" class="w-full bg-primary text-white"/>
+        <pv-button :label="$t('sign-up.button')" type="submit" class="w-full bg-primary text-white"/>
 
 
         <p class="text-center mt-4 bg-none">
-          Have an Account?
-          <router-link to="/sign-in" class="text-blue-500">Log In</router-link>
+          {{ $t("sign-up.haveAccount") }}
+          <router-link to="/sign-in" class="text-blue-500">{{ $t("sign-up.signInLink") }}</router-link>
         </p>
 
       </form>
