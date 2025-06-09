@@ -63,20 +63,20 @@ export default {
             @parking-spot-selected="handleSelectedSpot"
             class="w-full surface-card p-4 shadow-1 border-round h-full text-center"
         />
-        <div v-else class="text-center text-gray-500">Loading parking data...</div>
+        <div v-else class="text-center text-gray-500">{{ $t("parking-home.loading") }}</div>
 
 
         <div class="mt-4">
           <div class="surface-card p-4 shadow-1 border-round h-full text-center">
-            <p class="text-lg text-gray-700 mb-3">{{ $t('selectedSpot') }}</p>
+            <p class="text-lg text-gray-700 mb-3">{{ $t('parking-home.selectedSpot') }}</p>
 
             <div v-if="selectedSpot">
-              <h3 class="text-xl font-bold text-primary mb-2">{{ $t('spotDetails') }}</h3>
+              <h3 class="text-xl font-bold text-primary mb-2">{{ $t('parking-home.spotDetails') }}</h3>
               <p><strong>ID:</strong> {{ selectedSpot.id }}</p>
-              <p><strong>{{ $t('label') }}:</strong> {{ selectedSpot.label }}</p>
-              <p><strong>{{ $t('status') }}:</strong> {{ selectedSpot.status }}</p>
+              <p><strong>{{ $t('parking-home.label') }}:</strong> {{ selectedSpot.label }}</p>
+              <p><strong>{{ $t('parking-home.status') }}:</strong> {{ selectedSpot.status }}</p>
               <pv-button
-                  label="Reserve"
+                  :label="$t('parking-home.button')"
                   icon="pi pi-check"
                   class="p-button-primary mt-3"
                   @click="isVisible = true"
@@ -84,7 +84,7 @@ export default {
             </div>
 
             <div v-else class="text-gray-400 italic mt-4">
-              {{ $t('noSpotSelected') }}
+              {{ $t('parking-home.noSpotSelected') }}
             </div>
           </div>
         </div>

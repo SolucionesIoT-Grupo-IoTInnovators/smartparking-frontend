@@ -48,11 +48,15 @@
     "occupied": "Occupied",
     "reserved": "Reserved"
   },
-  "selectedSpot": "Select a parking spot to view details.",
-  "spotDetails": "Spot Details",
-  "noSpotSelected": "No parking spot selected.",
-  "label": "Label",
-  "status": "Status",
+  "parking-home": {
+    "loading": "Loading parking data...",
+    "selectedSpot": "Select a parking spot to view details.",
+    "spotDetails": "Spot Details",
+    "noSpotSelected": "No parking spot selected.",
+    "label": "Label",
+    "status": "Status",
+    "button": "Reserve"
+  },
   "reservations": "Reservations",
   "reviews": "Reviews",
   "reservationData": "Reservation Data",

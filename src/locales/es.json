@@ -48,11 +48,15 @@
     "occupied": "Ocupadas",
     "reserved": "Reservadas"
   },
-  "selectedSpot": "Selecciona un spot para ver los detalles.",
-  "spotDetails": "Detalles del Spot",
-  "noSpotSelected": "No se ha seleccionado ningún spot.",
-  "label": "Etiqueta",
-  "status": "Estado",
+  "parking-home": {
+    "loading": "Cargando datos del parking...",
+    "selectedSpot": "Selecciona una plaza de parking para ver los detalles.",
+    "spotDetails": "Detalles de la Plaza",
+    "noSpotSelected": "No se ha seleccionado ninguna plaza de parking.",
+    "label": "Etiqueta",
+    "status": "Estado",
+    "button": "Reservar"
+  },
   "reservations": "Reservas",
   "reviews": "Reseñas",
   "reservationData": "Reservas",
