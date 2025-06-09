@@ -29,13 +29,10 @@ export default {
 
 <template>
   <div class="flex flex-column justify-content-center align-items-center min-h-screen px-4">
-    <div class="text-center mb-5">
-      <img src="../../assets/images/smartparking_logo.png" alt="Logo" class="w-15rem mb-3 surface-card p-2" />
-      <h3 class="text-3xl m-0">Sign In to SmartParking</h3>
-    </div>
-
-    <form @submit.prevent="onSignIn" class="w-full" style="max-width: 400px">
+    <img src="../../assets/images/smartparking_logo.png" alt="Logo" class="w-15rem mb-3 surface-card p-2" />
+    <form @submit.prevent="onSignIn" class="w-full text-center" style="max-width: 400px">
       <div class="p-fluid surface-card p-4 border-round shadow-2">
+        <h3 class="text-3xl mt-0">Sign In to SmartParking</h3>
         <div class="mb-4">
           <pv-float-label>
             <pv-input-text id="email" v-model="email" :class="{'p-invalid': submitted && !email }" class="w-full"/>
