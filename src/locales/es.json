@@ -1,4 +1,14 @@
 {
+  "sign-in": {
+    "title": "Entrar en SmartParking",
+    "email": "Correo Electrónico",
+    "emailRequired": "El correo electrónico es obligatorio.",
+    "password": "Contraseña",
+    "passwordRequired": "La contraseña es obligatoria.",
+    "button": "Iniciar Sesión",
+    "noAccount": "¿No tienes una cuenta?",
+    "signUpLink": "Regístrate"
+  },
   "parkingDirectory": "Parkings",
   "parkingList": "Lista de Parkings",
   "addParking": "Agregar Parking",

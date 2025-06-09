@@ -32,28 +32,28 @@ export default {
     <img src="../../assets/images/smartparking_logo.png" alt="Logo" class="w-15rem mb-3 surface-card p-2" />
     <form @submit.prevent="onSignIn" class="w-full text-center" style="max-width: 400px">
       <div class="p-fluid surface-card p-4 border-round shadow-2">
-        <h3 class="text-3xl mt-0">Sign In to SmartParking</h3>
+        <h3 class="text-3xl mt-0">{{ $t("sign-in.title") }}</h3>
         <div class="mb-4">
           <pv-float-label>
             <pv-input-text id="email" v-model="email" :class="{'p-invalid': submitted && !email }" class="w-full"/>
-            <label for="email">Email</label>
+            <label for="email">{{ $t("sign-in.email") }}</label>
           </pv-float-label>
-          <small v-if="submitted && !email" class="p-error">Email is required.</small>
+          <small v-if="submitted && !email" class="p-error">{{ $t("sign-in.emailRequired") }}</small>
         </div>
 
         <div class="mb-4">
           <pv-float-label>
             <pv-input-text id="password" type="password" v-model="password" :class="{'p-invalid': submitted && !password }" class="w-full" />
-            <label for="password">Password</label>
+            <label for="password">{{ $t("sign-in.password") }}</label>
           </pv-float-label>
-          <small v-if="submitted && !password" class="p-error">Password is required.</small>
+          <small v-if="submitted && !password" class="p-error">{{ $t("sign-in.passwordRequired") }}</small>
         </div>
 
-        <pv-button type="submit" class="w-full font-bold uppercase">Sign In</pv-button>
+        <pv-button type="submit" class="w-full font-bold uppercase">{{ $t("sign-in.button") }}</pv-button>
 
         <p class="text-center mt-4 bg-none">
-          Don't have an account?
-          <router-link to="/sign-up" class="text-blue-500">Sign Up</router-link>
+          {{ $t("sign-in.noAccount") }}
+          <router-link to="/sign-up" class="text-blue-500">{{ $t("sign-in.signUpLink") }}</router-link>
         </p>
       </div>
     </form>
