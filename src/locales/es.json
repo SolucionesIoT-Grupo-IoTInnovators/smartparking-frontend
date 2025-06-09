@@ -41,11 +41,13 @@
     "addParking": "Agregar Parking",
     "viewDetails": "Ver Detalles"
   },
-  "overView": "Resumen del estado actual del parking",
-  "totalSpots": "Total de Plazas",
-  "available": "Disponibles",
-  "occupied": "Ocupadas",
-  "reserved": "Reservadas",
+  "parking-summary-card": {
+    "overView": "Resumen del estado actual del parking",
+    "totalSpots": "Total de Plazas",
+    "available": "Disponibles",
+    "occupied": "Ocupadas",
+    "reserved": "Reservadas"
+  },
   "selectedSpot": "Selecciona un spot para ver los detalles.",
   "spotDetails": "Detalles del Spot",
   "noSpotSelected": "No se ha seleccionado ningún spot.",
