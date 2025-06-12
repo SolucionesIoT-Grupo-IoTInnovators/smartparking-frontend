@@ -116,6 +116,24 @@
       "reservations": "Reservas",
       "xAxis": "Hora del Día",
       "yAxis": "Número de Reservas"
+    },
+    "dailyUsageChart": {
+      "title": "Uso de los últimos 7 Días",
+      "text1": "Reservaciones de los últimos 7 días",
+      "text2": "Reservaciones por Día",
+      "date": {
+        "date": "Fecha",
+        "mon": "Lun",
+        "tue": "Mar",
+        "wed": "Mié",
+        "thu": "Jue",
+        "fri": "Vie",
+        "sat": "Sáb",
+        "sun": "Dom"
+      },
+      "reservations": "Reservas",
+      "xAxis": "Día",
+      "yAxis": "Cantidad de Reservas"
     }
   },
   "step": "Paso",

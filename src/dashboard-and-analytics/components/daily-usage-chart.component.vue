@@ -24,7 +24,7 @@ export default {
         labels: this.dailyData.labels,
         datasets: [
           {
-            label: 'Reservaciones por día',
+            label: this.$t("dashboard.dailyUsageChart.text2"),
             data: this.dailyData.values,
             backgroundColor: documentStyle.getPropertyValue('--p-green-500'),
             hoverBackgroundColor: documentStyle.getPropertyValue('--p-green-400'),
@@ -37,10 +37,18 @@ export default {
       const documentStyle = getComputedStyle(document.body);
 
       return {
-        labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+        labels: [
+          this.$t("dashboard.dailyUsageChart.date.mon"),
+          this.$t("dashboard.dailyUsageChart.date.tue"),
+          this.$t("dashboard.dailyUsageChart.date.wed"),
+          this.$t("dashboard.dailyUsageChart.date.thu"),
+          this.$t("dashboard.dailyUsageChart.date.fri"),
+          this.$t("dashboard.dailyUsageChart.date.sat"),
+          this.$t("dashboard.dailyUsageChart.date.sun")
+        ],
         datasets: [
           {
-            label: 'Reservaciones por día',
+            label: this.$t("dashboard.dailyUsageChart.text2"),
             data: [12, 19, 3, 5, 2, 3, 7],
             fill: true,
             borderColor: documentStyle.getPropertyValue('--p-green-500'),
@@ -67,16 +75,16 @@ export default {
           },
           title: {
             display: true,
-            text: 'Reservaciones de los últimos 7 días',
+            text: this.$t("dashboard.dailyUsageChart.text1"),
             color: textColor
           },
           tooltip: {
             callbacks: {
               title: (tooltipItems) => {
-                return `Fecha: ${tooltipItems[0].label}`;
+                return this.$t("dashboard.dailyUsageChart.date.date")+`: ${tooltipItems[0].label}`;
               },
               label: (tooltipItem) => {
-                return `Reservaciones: ${tooltipItem.raw}`;
+                return this.$t("dashboard.dailyUsageChart.reservations")+`: ${tooltipItem.raw}`;
               }
             }
           }
@@ -87,7 +95,7 @@ export default {
             max: 40,
             title: {
               display: true,
-              text: 'Cantidad de reservaciones',
+              text: this.$t("dashboard.dailyUsageChart.yAxis"),
               color: textColor
             },
             ticks: {
@@ -105,7 +113,7 @@ export default {
           x: {
             title: {
               display: true,
-              text: 'Día',
+              text: this.$t("dashboard.dailyUsageChart.xAxis"),
               color: textColor
             },
             ticks: {
@@ -143,7 +151,7 @@ export default {
 
 <template>
   <div class="card">
-    <h3 class="text-center mb-3">Uso de los últimos 7 días</h3>
+    <h3 class="text-center mb-3">{{$t("dashboard.dailyUsageChart.title")}}</h3>
     <div class="chart-container" style="position: relative;">
       <pv-chart type="line" :data="chartData" :options="chartOptions" v-if="chartData" :height="300"/>
       <div v-else class="text-center p-4">
