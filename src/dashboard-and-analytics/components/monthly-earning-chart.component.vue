@@ -24,7 +24,7 @@ export default {
         labels: this.monthlyData.labels,
         datasets: [
           {
-            label: 'Ingresos mensuales',
+            label: this.$t("dashboard.monthlyIncomeChart.text2"),
             data: this.monthlyData.values,
             backgroundColor: documentStyle.getPropertyValue('--p-orange-500'),
             hoverBackgroundColor: documentStyle.getPropertyValue('--p-orange-400'),
@@ -37,10 +37,23 @@ export default {
       const documentStyle = getComputedStyle(document.body);
 
       return {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        labels: [
+            this.$t("dashboard.monthlyIncomeChart.month.jan"),
+            this.$t("dashboard.monthlyIncomeChart.month.feb"),
+            this.$t("dashboard.monthlyIncomeChart.month.mar"),
+            this.$t("dashboard.monthlyIncomeChart.month.apr"),
+            this.$t("dashboard.monthlyIncomeChart.month.may"),
+            this.$t("dashboard.monthlyIncomeChart.month.jun"),
+            this.$t("dashboard.monthlyIncomeChart.month.jul"),
+            this.$t("dashboard.monthlyIncomeChart.month.aug"),
+            this.$t("dashboard.monthlyIncomeChart.month.sep"),
+            this.$t("dashboard.monthlyIncomeChart.month.oct"),
+            this.$t("dashboard.monthlyIncomeChart.month.nov"),
+            this.$t("dashboard.monthlyIncomeChart.month.dec")
+        ],
         datasets: [
           {
-            label: 'Ingresos mensuales',
+            label: this.$t("dashboard.monthlyIncomeChart.text2"),
             data: [1000, 1200, 1500, 1300, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300],
             backgroundColor: documentStyle.getPropertyValue('--p-orange-500'),
             hoverBackgroundColor: documentStyle.getPropertyValue('--p-orange-400'),
@@ -73,16 +86,16 @@ export default {
           },
           title: {
             display: true,
-            text: 'Ingresos por mes',
+            text: this.$t("dashboard.monthlyIncomeChart.text1"),
             color: textColor
           },
           tooltip: {
             callbacks: {
               title: (tooltipItems) => {
-                return `Mes: ${tooltipItems[0].label}`;
+                return this.$t("dashboard.monthlyIncomeChart.month.month") + `: ${tooltipItems[0].label}`;
               },
               label: (tooltipItem) => {
-                return `Ingresos: S/ ${tooltipItem.raw.toFixed(2)}`;
+                return this.$t("dashboard.monthlyIncomeChart.income") + `: S/ ${tooltipItem.raw.toFixed(2)}`;
               }
             }
           }
@@ -93,7 +106,7 @@ export default {
             max: maxValue, // Establecer el valor máximo
             title: {
               display: true,
-              text: 'Ingresos (S/)',
+              text: this.$t("dashboard.monthlyIncomeChart.yAxis"),
               color: textColor
             },
             ticks: {
@@ -104,7 +117,7 @@ export default {
           x: {
             title: {
               display: true,
-              text: 'Mes',
+              text: this.$t("dashboard.monthlyIncomeChart.xAxis"),
               color: textColor
             },
             ticks: {
@@ -138,7 +151,7 @@ export default {
 
 <template>
   <div class="card">
-    <h3 class="text-center mb-3">Ingresos Mensuales</h3>
+    <h3 class="text-center mb-3">{{ $t("dashboard.monthlyIncomeChart.title") }}</h3>
     <div class="chart-container" style="position: relative;">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" v-if="chartData" :height="300"/>
       <div v-else class="text-center p-4">

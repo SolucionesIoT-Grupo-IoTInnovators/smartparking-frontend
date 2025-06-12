@@ -134,6 +134,29 @@
       "reservations": "Reservations",
       "xAxis": "Day",
       "yAxis": "Number of Reservations"
+    },
+    "monthlyIncomeChart": {
+      "title": "Monthly Income",
+      "text1": "Income by Month",
+      "text2": "Monthly Income",
+      "month": {
+        "month": "Month",
+        "jan": "January",
+        "feb": "February",
+        "mar": "March",
+        "apr": "April",
+        "may": "May",
+        "jun": "June",
+        "jul": "July",
+        "aug": "August",
+        "sep": "September",
+        "oct": "October",
+        "nov": "November",
+        "dec": "December"
+      },
+      "income": "Income",
+      "xAxis": "Month",
+      "yAxis": "Income (S/)"
     }
   },
   "step": "Step",
