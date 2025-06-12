@@ -157,6 +157,24 @@
       "income": "Income",
       "xAxis": "Month",
       "yAxis": "Income (S/)"
+    },
+    "averageDurationChart": {
+      "title": "Average Reservation Duration",
+      "text1": "Average duration by day",
+      "text2": "Average Duration",
+      "day": {
+        "day": "Day",
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday",
+        "sun": "Sunday"
+      },
+      "averageDuration": "Average Duration",
+      "xAxis": "Hour",
+      "yAxis": "Weekday"
     }
   },
   "step": "Step",

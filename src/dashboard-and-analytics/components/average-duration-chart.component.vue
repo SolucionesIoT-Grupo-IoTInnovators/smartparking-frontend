@@ -24,7 +24,7 @@ export default {
         labels: this.durationData.labels,
         datasets: [
           {
-            label: 'Duración promedio',
+            label: this.$t("dashboard.averageDurationChart.title2"),
             data: this.durationData.values,
             backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
             hoverBackgroundColor: documentStyle.getPropertyValue('--p-cyan-400'),
@@ -37,10 +37,18 @@ export default {
       const documentStyle = getComputedStyle(document.body);
 
       return {
-        labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+        labels: [
+          this.$t("dashboard.averageDurationChart.day.mon"),
+          this.$t("dashboard.averageDurationChart.day.tue"),
+          this.$t("dashboard.averageDurationChart.day.wed"),
+          this.$t("dashboard.averageDurationChart.day.thu"),
+          this.$t("dashboard.averageDurationChart.day.fri"),
+          this.$t("dashboard.averageDurationChart.day.sat"),
+          this.$t("dashboard.averageDurationChart.day.sun")
+        ],
         datasets: [
           {
-            label: 'Duración promedio',
+            label: this.$t("dashboard.averageDurationChart.text2"),
             data: [2.5, 3.0, 4.5, 2.0, 3.5, 4.0, 2.5],
             backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
             hoverBackgroundColor: documentStyle.getPropertyValue('--p-cyan-400'),
@@ -73,16 +81,16 @@ export default {
           },
           title: {
             display: true,
-            text: 'Duración promedio por día de la semana',
+            text: this.$t("dashboard.averageDurationChart.text1"),
             color: textColor
           },
           tooltip: {
             callbacks: {
               title: (tooltipItems) => {
-                return `Día: ${tooltipItems[0].label}`;
+                return this.$t("dashboard.averageDurationChart.day.day") + `: ${tooltipItems[0].label}`;
               },
               label: (tooltipItem) => {
-                return `Duración promedio: ${tooltipItem.raw.toFixed(2)} horas`;
+                return this.$t("dashboard.averageDurationChart.averageDuration") + `: ${tooltipItem.raw.toFixed(2)} horas`;
               }
             }
           }
@@ -91,7 +99,7 @@ export default {
           y: {
             title: {
               display: true,
-              text: 'Día de la semana',
+              text: this.$t("dashboard.averageDurationChart.yAxis"),
               color: textColor
             },
             ticks: {
@@ -103,7 +111,7 @@ export default {
             max: 7,
             title: {
               display: true,
-              text: 'Horas',
+              text: this.$t("dashboard.averageDurationChart.xAxis"),
               color: textColor
             },
             ticks: {
@@ -139,7 +147,7 @@ export default {
 
 <template>
   <div class="card">
-    <h3 class="text-center mb-3">Duración Promedio de Reservas</h3>
+    <h3 class="text-center mb-3">{{ $t("dashboard.averageDurationChart.title")}}</h3>
     <div class="chart-container" style="position: relative;">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" :height="300" v-if="chartData"/>
       <div v-else class="text-center p-4">

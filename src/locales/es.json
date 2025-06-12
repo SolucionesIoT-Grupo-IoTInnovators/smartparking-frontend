@@ -157,6 +157,24 @@
         "income": "Ingresos",
         "xAxis": "Mes",
         "yAxis": "Ingresos (S/)"
+    },
+    "averageDurationChart": {
+      "title": "Duración Promedio de Reservas",
+      "text1": "Duración promedio por día de la semana",
+      "text2": "Duracion promedio",
+      "day": {
+        "day": "Dia",
+        "mon": "Lunes",
+        "tue": "Martes",
+        "wed": "Miércoles",
+        "thu": "Jueves",
+        "fri": "Viernes",
+        "sat": "Sábado",
+        "sun": "Domingo"
+      },
+      "averageDuration": "Duración Promedio",
+      "xAxis": "Horas",
+      "yAxis": "Dia de la Semana"
     }
   },
   "step": "Paso",
