@@ -112,17 +112,17 @@ export default {
 </script>
 
 <template>
-  <pv-dialog v-bind:visible="isVisible" modal header="Create a Reservation" :style="{ width: '25rem' }">
+  <pv-dialog v-bind:visible="isVisible" modal :header="$t('reservationData.popUp.title')" :style="{ width: '25rem' }">
     <form @submit.prevent="onSubmitForm" class="w-full">
       <div class="p-fluid">
         <div class="my-4">
           <pv-float-label>
             <pv-input-mask id="vehiclePlate" v-model="reservation.vehiclePlate" mask="aaa-aaa"
                            :class="{'p-invalid': submitted && !reservation.vehiclePlate }" class="w-full"/>
-            <label for="vehiclePlate">{{ $t('vehiclePlate') }}</label>
+            <label for="vehiclePlate">{{ $t('reservationData.popUp.vehiclePlate') }}</label>
           </pv-float-label>
           <small v-if="submitted && !reservation.vehiclePlate" class="p-error">
-            {{ $t('vehiclePlateRequired') }}
+            {{ $t('reservationData.popUp.vehiclePlateRequired') }}
           </small>
         </div>
 
@@ -130,10 +130,10 @@ export default {
           <pv-float-label>
             <pv-input-mask id="starTime" v-model="reservation.startTime" mask="99:99"
                            :class="{'p-invalid': submitted && !reservation.startTime }" class="w-full"/>
-            <label for="starTime">{{ $t('startTime') }}</label>
+            <label for="starTime">{{ $t('reservationData.popUp.startTime') }}</label>
           </pv-float-label>
           <small v-if="submitted && !reservation.startTime" class="p-error">
-            {{ $t('startTimeRequired') }}
+            {{ $t('reservationData.popUp.startTimeRequired') }}
           </small>
         </div>
 
@@ -141,10 +141,10 @@ export default {
           <pv-float-label>
             <pv-input-mask id="endTime" v-model="reservation.endTime" mask="99:99"
                            :class="{'p-invalid': submitted && (!reservation.endTime || invalidTimeDifference)}" class="w-full"/>
-            <label for="endTime">{{ $t('endTime') }}</label>
+            <label for="endTime">{{ $t('reservationData.popUp.endTime') }}</label>
           </pv-float-label>
           <small v-if="submitted && !reservation.endTime" class="p-error">
-            {{ $t('endTimeRequired') }}
+            {{ $t('reservationData.popUp.endTimeRequired') }}
           </small>
           <small v-if="submitted && reservation.endTime && invalidTimeDifference" class="p-error">
            EndTime must be at least 1 hour after StartTime
@@ -152,8 +152,8 @@ export default {
         </div>
 
         <div class="flex justify-end gap-2">
-          <pv-button @click="closeDialog()" class="w-full font-bold uppercase bg-gray-500">{{ $t('cancel') }}</pv-button>
-          <pv-button type="submit" class="w-full font-bold uppercase">{{ $t('register') }}</pv-button>
+          <pv-button @click="closeDialog()" class="w-full font-bold uppercase bg-gray-500">{{ $t('reservationData.popUp.cancel') }}</pv-button>
+          <pv-button type="submit" class="w-full font-bold uppercase">{{ $t('reservationData.popUp.register') }}</pv-button>
         </div>
       </div>
     </form>

@@ -80,7 +80,22 @@
     "startTime": "Start Time",
     "endTime": "End Time",
     "totalPrice": "Total Price",
-    "status": "Status"
+    "status": "Status",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "cancelled": "Cancelled",
+    "completed": "Completed",
+    "popUp": {
+      "title": "Create Reservation",
+      "vehiclePlate": "Vehicle Plate",
+      "vehiclePlateRequired": "Vehicle plate is required",
+      "register": "Register",
+      "startTime": "Start Time",
+      "startTimeRequired": "Start time is required",
+      "endTime": "End Time",
+      "endTimeRequired": "End time is required",
+      "cancel": "Cancel"
+    }
   },
   "userProfile": {
     "title": "User Profile",
@@ -98,13 +113,5 @@
   "imageUrl": "Image URL",
   "defineLocation": "Define Location",
   "address": "Address",
-  "designYourParking": "Design Your Parking",
-  "vehiclePlate": "Vehicle Plate",
-  "vehiclePlateRequired": "Vehicle plate is required",
-  "register": "Register",
-  "startTime": "Start Time",
-  "startTimeRequired": "Start time is required",
-  "endTime": "End Time",
-  "endTimeRequired": "End time is required",
-  "cancel": "Cancel"
+  "designYourParking": "Design Your Parking"
 }

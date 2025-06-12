@@ -80,7 +80,22 @@
     "startTime": "Hora de Inicio",
     "endTime": "Hora de Fin",
     "totalPrice": "Precio Total",
-    "status": "Estado"
+    "status": "Estado",
+    "pending": "Pendiente",
+    "confirmed": "Confirmado",
+    "cancelled": "Cancelado",
+    "completed": "Completado",
+    "popUp": {
+      "title": "Crear Reserva",
+      "vehiclePlate": "Matrícula del Vehículo",
+      "vehiclePlateRequired": "La matrícula es obligatoria",
+      "register": "Registrar",
+      "startTime": "Hora de Inicio",
+      "startTimeRequired": "La hora de inicio es obligatoria",
+      "endTime": "Hora de Fin",
+      "endTimeRequired": "La hora de fin es obligatoria",
+      "cancel": "Cancelar"
+    }
   },
   "userProfile": {
     "title": "Perfil de Usuario",
@@ -98,13 +113,5 @@
   "imageUrl": "URL de Imagen",
   "defineLocation": "Definir Ubicación",
   "address": "Dirección",
-  "designYourParking": "Diseña tu Parking",
-  "vehiclePlate": "Matrícula del Vehículo",
-  "vehiclePlateRequired": "La matrícula es obligatoria",
-  "register": "Registrar",
-  "startTime": "Hora de Inicio",
-  "endTime": "Hora de Fin",
-  "startTimeRequired": "La hora de inicio es obligatoria",
-  "endTimeRequired": "La hora de fin es obligatoria",
-  "cancel": "Cancelar"
+  "designYourParking": "Diseña tu Parking"
 }

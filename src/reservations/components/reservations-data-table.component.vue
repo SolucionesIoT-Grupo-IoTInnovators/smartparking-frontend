@@ -18,10 +18,10 @@ export default {
       error: null,
       filters: null,
       statuses: [
-        { label: 'PENDING', value: 'PENDING' },
-        { label: 'CONFIRMED', value: 'CONFIRMED' },
-        { label: 'CANCELED', value: 'CANCELED' },
-        { label: 'COMPLETED', value: 'COMPLETED' }
+        { label: this.$t('reservationData.pending'), value: 'PENDING' },
+        { label: this.$t('reservationData.confirmed'), value: 'CONFIRMED' },
+        { label: this.$t('reservationData.canceled'), value: 'CANCELED' },
+        { label: this.$t('reservationData.completed'), value: 'COMPLETED' }
       ]
     }
   },
