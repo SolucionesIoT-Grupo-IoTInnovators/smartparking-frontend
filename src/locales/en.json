@@ -34,7 +34,11 @@
     "haveAccount": "Have an account?",
     "signInLink": "Sign In"
   },
-  "parkingDirectory": "Parking Directory",
+  "toolbar": {
+    "parkingDirectory": "Parkings Directory",
+    "profile": "Profile",
+    "signOut": "Sign Out"
+  },
   "parkingList": {
     "title": "Parking List",
     "noParking": "No parking available",

@@ -12,14 +12,14 @@ export default {
       router: useRouter(),
       items: [
         {
-          label: 'Profile',
+          label: this.$t('toolbar.profile'),
           icon: 'pi pi-fw pi-user',
           command: () => {
             this.router.push({ name: 'owner-profile', params: { ownerId: this.authenticationStore.currentUserId } });
           }
         },
         {
-          label: 'Sign Out',
+          label: this.$t('toolbar.signOut'),
           icon: 'pi pi-fw pi-sign-out',
           command: () => {
             this.authenticationStore.signOut(this.router);
@@ -59,7 +59,7 @@ export default {
       <template #center>
         <router-link :to="{ name: 'parking-directory', params: { ownerId: authenticationStore.currentUserId }}"
                      class="text-white text-lg font-bold hidden md:block">
-          {{ $t('parkingDirectory') }}
+          {{ $t('toolbar.parkingDirectory') }}
         </router-link>
       </template>
       <template #end>
