@@ -55,7 +55,9 @@
     "noSpotSelected": "No se ha seleccionado ninguna plaza de parking.",
     "label": "Etiqueta",
     "status": "Estado",
-    "button": "Reservar"
+    "button": "Reservar",
+    "info": "Información",
+    "aisleSelected": "Esto es un pasillo, elige una plaza de parking."
   },
   "sidebar": {
     "home": "Inicio",

@@ -55,7 +55,9 @@
     "noSpotSelected": "No parking spot selected.",
     "label": "Label",
     "status": "Status",
-    "button": "Reserve"
+    "button": "Reserve",
+    "info": "Information",
+    "aisleSelected": "This is an aisle, choose a parking spot."
   },
   "sidebar": {
     "home": "Home",

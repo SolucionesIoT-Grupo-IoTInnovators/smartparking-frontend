@@ -69,8 +69,8 @@ export default {
       if (cell.type === 'aisle') {
         this.$toast.add({
           severity: 'info',
-          summary: 'Information',
-          detail: 'This is an aisle, choose a parking spot.',
+          summary: this.$t('parking-home.info'),
+          detail: this.$t('parking-home.aisleSelected'),
           life: 3000
         });
         this.selectedParkingSpot = null;
