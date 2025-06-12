@@ -44,7 +44,7 @@ export default {
           '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM'],
         datasets: [
           {
-            label: 'Reservaciones por hora',
+            label: this.$t('dashboard.hourlyUsageChart.text2'),
             data: [
               5, 10, 15, 20, 25, 30, 35, 40, 45, 50,
               55, 60, 65, 70, 75, 80
@@ -72,16 +72,16 @@ export default {
           },
           title: {
             display: true,
-            text: 'Distribución de Reservaciones por Hora del Día',
+            text: this.$t('dashboard.hourlyUsageChart.text1'),
             color: textColor
           },
           tooltip: {
             callbacks: {
               title: (tooltipItems) => {
-                return `Hora: ${tooltipItems[0].label}`;
+                return this.$t('dashboard.hourlyUsageChart.time') + `: ${tooltipItems[0].label}`;
               },
               label: (tooltipItem) => {
-                return `Reservaciones: ${tooltipItem.raw}`;
+                return this.$t('dashboard.hourlyUsageChart.reservations') +`: ${tooltipItem.raw}`;
               }
             }
           }
@@ -92,7 +92,7 @@ export default {
             beginAtZero: true,
             title: {
               display: true,
-              text: 'Cantidad de reservaciones',
+              text: this.$t('dashboard.hourlyUsageChart.yAxis'),
               color: textColor
             },
             ticks: {
@@ -104,7 +104,7 @@ export default {
           x: {
             title: {
               display: true,
-              text: 'Hora del día',
+              text: this.$t('dashboard.hourlyUsageChart.xAxis'),
               color: textColor
             },
             ticks: {
@@ -133,7 +133,7 @@ export default {
 
 <template>
   <div class="card">
-    <h3 class="text-center mb-3">Uso por Hora</h3>
+    <h3 class="text-center mb-3">{{ $t('dashboard.hourlyUsageChart.title') }}</h3>
     <div class="chart-container" style="position: relative;">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" :height="300"/>
     </div>

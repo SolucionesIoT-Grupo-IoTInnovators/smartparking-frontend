@@ -107,6 +107,17 @@
     "companyName": "Nombre de la Empresa"
   },
   "userReviews": "Reseñas de Usuarios",
+  "dashboard": {
+    "hourlyUsageChart": {
+      "title": "Uso por Hora",
+      "text1": "Distribución de Reservaciones por Hora del Día",
+      "text2": "Reservaciones por Hora",
+      "time": "Hora",
+      "reservations": "Reservas",
+      "xAxis": "Hora del Día",
+      "yAxis": "Número de Reservas"
+    }
+  },
   "step": "Paso",
   "description": "Descripción",
   "ratePerHour": "Tarifa por Hora",
