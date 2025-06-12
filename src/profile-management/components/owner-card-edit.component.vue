@@ -40,14 +40,14 @@ export default {
 <template>
   <div class="flex justify-content-center align-items-center w-full">
     <div class="card p-5 shadow-none w-full lg:w-8">
-      <h3 class="text-4xl font-bold mb-5 text-primary text-center m-4">User Profile</h3>
+      <h3 class="text-4xl font-bold mb-5 text-primary text-center m-4">{{ $t("userProfile.title") }}</h3>
       <div class="formgrid grid">
         <!-- Name -->
         <div class="field col-12 mb-5">
           <pv-float-label>
             <pv-input-text id="name" v-model="ownerData.fullName" class="w-full"
                            :class="{'p-invalid': submitted && !ownerData.fullName}"/>
-            <label for="name" class="text-primary">{{ $t('name') }}</label>
+            <label for="name" class="text-primary">{{ $t('userProfile.name') }}</label>
           </pv-float-label>
           <small v-if="submitted && !ownerData.fullName" class="p-error">FullName is required</small>
         </div>
@@ -57,7 +57,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="city" v-model="ownerData.city" class="w-full"
                            :class="{'p-invalid': submitted && !ownerData.city}"/>
-            <label for="city" class="text-primary">{{ $t('city') }}</label>
+            <label for="city" class="text-primary">{{ $t('userProfile.city') }}</label>
           </pv-float-label>
           <small v-if="submitted && !ownerData.city" class="p-error">City is required</small>
         </div>
@@ -67,7 +67,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="country" v-model="ownerData.country" class="w-full"
                            :class="{'p-invalid': submitted && !ownerData.country}"/>
-            <label for="country" class="text-primary">{{ $t('country') }}</label>
+            <label for="country" class="text-primary">{{ $t('userProfile.country') }}</label>
           </pv-float-label>
           <small v-if="submitted && !ownerData.country" class="p-error">Country is required</small>
         </div>
@@ -77,7 +77,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="phone" v-model="ownerData.phone" class="w-full"
                            :class="{'p-invalid': submitted && !ownerData.phone}"/>
-            <label for="phone" class="text-primary">{{ $t('phone') }}</label>
+            <label for="phone" class="text-primary">{{ $t('userProfile.phone') }}</label>
           </pv-float-label>
           <small v-if="submitted && !ownerData.phone" class="p-error">Phone is required</small>
         </div>
@@ -87,7 +87,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="ruc" v-model="ownerData.ruc" class="w-full"
                            :class="{'p-invalid': submitted && !ownerData.ruc}"/>
-            <label for="ruc" class="text-primary">{{ $t('ruc') }}</label>
+            <label for="ruc" class="text-primary">{{ $t('userProfile.ruc') }}</label>
           </pv-float-label>
           <small v-if="submitted && !ownerData.ruc" class="p-error">RUC is required</small>
         </div>
@@ -97,7 +97,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="companyName" v-model="ownerData.companyName" class="w-full"
                            :class="{'p-invalid': submitted && !ownerData.companyName}"/>
-            <label for="companyName" class="text-primary">{{ $t('companyName') }}</label>
+            <label for="companyName" class="text-primary">{{ $t('userProfile.companyName') }}</label>
           </pv-float-label>
           <small v-if="submitted && !ownerData.companyName" class="p-error">Company Name is required</small>
         </div>

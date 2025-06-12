@@ -82,9 +82,17 @@
     "totalPrice": "Total Price",
     "status": "Status"
   },
+  "userProfile": {
+    "title": "User Profile",
+    "name": "Name",
+    "city": "City",
+    "country": "Country",
+    "phone": "Phone",
+    "ruc": "RUC",
+    "companyName": "Company Name"
+  },
   "userReviews": "User Reviews",
   "step": "Step",
-  "name": "Name",
   "description": "Description",
   "ratePerHour": "Rate per Hour",
   "imageUrl": "Image URL",

@@ -82,9 +82,17 @@
     "totalPrice": "Precio Total",
     "status": "Estado"
   },
+  "userProfile": {
+    "title": "Perfil de Usuario",
+    "name": "Nombre",
+    "city": "Ciudad",
+    "country": "País",
+    "phone": "Teléfono",
+    "ruc": "Número de RUC",
+    "companyName": "Nombre de la Empresa"
+  },
   "userReviews": "Reseñas de Usuarios",
   "step": "Paso",
-  "name": "Nombre",
   "description": "Descripción",
   "ratePerHour": "Tarifa por Hora",
   "imageUrl": "URL de Imagen",
