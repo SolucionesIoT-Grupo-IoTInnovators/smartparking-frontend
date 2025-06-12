@@ -140,7 +140,7 @@ export default {
         this.$toast.add({
           severity: 'warn',
           summary: 'Warning',
-          detail: 'Please add at least one parking spot.',
+          detail: this.$t('addParking.warning'),
           life: 3000,
         });
         return;
@@ -159,14 +159,14 @@ export default {
 
 <template>
   <div class="app-container">
-    <h2 class="text-2xl md:text-3xl lg:text-4xl mb-4">{{ $t('designYourParking') }}</h2>
+    <h2 class="text-2xl md:text-3xl lg:text-4xl mb-4">{{ $t('addParking.designYourParking') }}</h2>
 
     <!-- Tool Controls -->
     <div class="controls">
-      <pv-button label="Parking Spot" icon="pi pi-car" @click="setTool('spot')"/>
-      <pv-button label="Aisle" icon="pi pi-bars" @click="setTool('aisle')"/>
-      <pv-button label="Reset" icon="pi pi-refresh" @click="resetGrid" class="reset-btn"/>
-      <pv-button label="Optimize" icon="pi pi-check" @click="optimizeGrid" class="optimize-btn"/>
+      <pv-button :label="$t('addParking.button.spots')" icon="pi pi-car" @click="setTool('spot')"/>
+      <pv-button :label="$t('addParking.button.aisle')" icon="pi pi-bars" @click="setTool('aisle')"/>
+      <pv-button :label="$t('addParking.button.reset')" icon="pi pi-refresh" @click="resetGrid" class="reset-btn"/>
+      <pv-button :label="$t('addParking.button.optimize')" icon="pi pi-check" @click="optimizeGrid" class="optimize-btn"/>
     </div>
 
     <!-- Parking Grid -->
@@ -189,8 +189,8 @@ export default {
   </div>
 
   <div class="flex justify-content-between mt-4">
-    <pv-button label="Back" icon="pi pi-arrow-left" @click="previousStep"/>
-    <pv-button label="Finish" icon="pi pi-check" @click="finish" />
+    <pv-button :label="$t('addParking.button.back')" icon="pi pi-arrow-left" @click="previousStep"/>
+    <pv-button :label="$t('addParking.button.finish')" icon="pi pi-check" @click="finish" />
   </div>
 </template>
 

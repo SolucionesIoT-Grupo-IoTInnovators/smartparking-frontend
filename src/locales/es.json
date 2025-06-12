@@ -177,11 +177,37 @@
       "yAxis": "Dia de la Semana"
     }
   },
-  "step": "Paso",
-  "description": "Descripción",
-  "ratePerHour": "Tarifa por Hora",
-  "imageUrl": "URL de Imagen",
-  "defineLocation": "Definir Ubicación",
-  "address": "Dirección",
-  "designYourParking": "Diseña tu Parking"
+  "addParking":{
+    "create": "Crear Parking",
+    "profile": "Perfil del Parking",
+    "step": "Paso",
+    "name": "Nombre del Parking",
+    "description": "Descripción",
+    "ratePerHour": "Tarifa por Hora",
+    "imageUrl": "URL de Imagen",
+    "defineLocation": "Definir Ubicación",
+    "address": "Dirección",
+    "addressRequired": "La dirección es obligatoria",
+    "designYourParking": "Diseña tu Parking",
+    "error": "Error al agregar el parking",
+    "success": "Parking agregado exitosamente",
+    "warning": "Por favor, agregue al menos una plaza de parking.",
+    "button": {
+      "back": "Atrás",
+      "continue": "Continuar",
+      "cancel": "Cancelar",
+      "finish": "Finalizar",
+      "edit": "Editar",
+      "spots": "Plazas de Parking",
+      "aisle": "Pasillo",
+      "reset": "Reiniciar",
+      "optimize": "Optimizar"
+    },
+    "confirmation": {
+      "title": "Confirmación",
+      "message": "¿Estás seguro de que deseas agregar este parking?",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar"
+    }
+  }
 }

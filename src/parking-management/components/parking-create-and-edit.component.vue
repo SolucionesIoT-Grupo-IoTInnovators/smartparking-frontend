@@ -74,7 +74,7 @@ export default {
 <template>
   <div class="flex justify-content-center align-items-center w-full">
     <div class="card p-5 shadow-none w-full lg:w-8">
-      <h3 class="text-4xl font-bold mb-5 text-primary text-center m-4">{{ localParking.id ? 'Parking Profile' : 'Create Parking' }}</h3>
+      <h3 class="text-4xl font-bold mb-5 text-primary text-center m-4">{{ localParking.id ? $t('addParking.profile') : $t('addParking.create') }}</h3>
 
       <div class="formgrid grid">
         <!-- Name -->
@@ -82,7 +82,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="name" v-model="localParking.name" class="w-full"
                            :class="{'p-invalid': submitted && !localParking.name}"/>
-            <label for="name" class="text-primary">{{ $t('name') }}</label>
+            <label for="name" class="text-primary">{{ $t('addParking.name') }}</label>
           </pv-float-label>
           <small v-if="submitted && !localParking.name" class="p-error">Name is required</small>
         </div>
@@ -91,7 +91,7 @@ export default {
         <div class="field col-12 mb-5">
           <pv-float-label>
             <pv-textarea id="description" v-model="localParking.description" rows="3" autoResize class="w-full"/>
-            <label for="description" class="text-primary">{{ $t('description') }}</label>
+            <label for="description" class="text-primary">{{ $t('addParking.description') }}</label>
           </pv-float-label>
         </div>
 
@@ -101,7 +101,7 @@ export default {
             <pv-input-number id="ratePerHour" v-model="localParking.ratePerHour" mode="currency" currency="USD"
                              :minFractionDigits="2" class="w-full"
                              :class="{'p-invalid': submitted && !localParking.ratePerHour}"/>
-            <label for="ratePerHour" class="text-primary">{{ $t('ratePerHour') }}</label>
+            <label for="ratePerHour" class="text-primary">{{ $t('addParking.ratePerHour') }}</label>
           </pv-float-label>
           <small v-if="submitted && !localParking.ratePerHour" class="p-error">Rate per hour is required</small>
         </div>
@@ -111,7 +111,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="address" v-model="localParking.address" class="w-full"
                            :class="{'p-invalid': submitted && !localParking.address}"/>
-            <label for="address" class="text-primary">{{ $t('address') }}</label>
+            <label for="address" class="text-primary">{{ $t('addParking.address') }}</label>
           </pv-float-label>
           <small v-if="submitted && !localParking.address" class="p-error">Address is required</small>
         </div>
@@ -121,7 +121,7 @@ export default {
           <pv-float-label>
             <pv-input-text id="imageUrl" v-model="localParking.imageUrl" class="w-full"
                            :class="{'p-invalid': submitted && !localParking.imageUrl}"/>
-            <label for="imageUrl" class="text-primary">{{ $t('imageUrl') }}</label>
+            <label for="imageUrl" class="text-primary">{{ $t('addParking.imageUrl') }}</label>
           </pv-float-label>
           <small v-if="submitted && !localParking.imageUrl" class="p-error">Image URL is required</small>
         </div>
@@ -150,11 +150,11 @@ export default {
 
       <!-- Actions -->
       <div v-if="localParking.id" class="flex justify-content-end align-items-center">
-        <pv-button label="Edit" icon="pi pi-pencil" raised class="mt-4" @click="handleSave"/>
+        <pv-button :label="$t('addParking.button.edit')" icon="pi pi-pencil" raised class="mt-4" @click="handleSave"/>
       </div>
       <div v-else class="flex justify-content-end gap-2 mt-4">
-        <pv-button label="Cancel" icon="pi pi-times" severity="secondary" @click="handleCancel"/>
-        <pv-button label="Continue" icon="pi pi-arrow-right" @click="handleSave"/>
+        <pv-button :label="$t('addParking.button.cancel')" icon="pi pi-times" severity="secondary" @click="handleCancel"/>
+        <pv-button :label="$t('addParking.button.continue')" icon="pi pi-arrow-right" @click="handleSave"/>
 
       </div>
     </div>

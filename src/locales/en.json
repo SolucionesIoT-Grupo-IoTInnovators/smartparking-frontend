@@ -177,11 +177,37 @@
       "yAxis": "Weekday"
     }
   },
-  "step": "Step",
-  "description": "Description",
-  "ratePerHour": "Rate per Hour",
-  "imageUrl": "Image URL",
-  "defineLocation": "Define Location",
-  "address": "Address",
-  "designYourParking": "Design Your Parking"
+  "addParking": {
+    "create": "Create Parking",
+    "profile": "Parking Profile",
+    "step": "Step",
+    "name": "Parking Name",
+    "description": "Description",
+    "ratePerHour": "Rate per Hour",
+    "imageUrl": "Image URL",
+    "defineLocation": "Define Location",
+    "address": "Address",
+    "addressRequired": "Address is required",
+    "designYourParking": "Design Your Parking",
+    "error": "Failed to add parking",
+    "success": "Parking added successfully",
+    "warning": "Please add at least one parking spot.",
+    "button": {
+      "back": "Back",
+      "continue": "Continue",
+      "cancel": "Cancel",
+      "finish": "Finish",
+      "edit": "Edit",
+      "spots": "Parking Spots",
+      "aisle": "Aisle",
+      "reset": "Reset",
+      "optimize": "Optimize"
+    },
+    "confirmation": {
+      "title": "Confirmation",
+      "message": "Are you sure all the parking info is correct?",
+      "confirm": "Yes, save",
+      "cancel": "No, go back"
+    }
+  }
 }

@@ -94,7 +94,7 @@ export default {
         this.$toast.add({
           severity: 'success',
           summary: 'Success',
-          detail: 'Parking was created successfully!',
+          detail: this.$t('addParking.success'),
           life: 3000
         });
 
@@ -105,7 +105,7 @@ export default {
         this.$toast.add({
           severity: 'error',
           summary: 'Error',
-          detail: 'Failed to create parking',
+          detail: this.$t('addParking.error'),
           life: 3000
         });
       }
@@ -158,7 +158,7 @@ export default {
                                            'completed': step < currentStep}]">
             {{ step }}
           </div>
-          <div class="step-label mt-2">{{ $t('step') }} {{ step }}</div>
+          <div class="step-label mt-2">{{ $t('addParking.step') }} {{ step }}</div>
         </div>
       </div>
     </div>
@@ -196,19 +196,19 @@ export default {
       :modal="true"
       :style="getDialogStyle()"
       class="p-fluid"
-      header="Confirmation">
+      :header="$t('addParking.confirmation.title')">
     <div class="confirmation-content">
       <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
-      <span>Are you sure all the parking info is correct?</span>
+      <span>{{ $t('addParking.confirmation.title') }}</span>
     </div>
     <template #footer>
       <pv-button
-          label="No, go back"
+          :label="$t('addParking.confirmation.cancel')"
           icon="pi pi-times"
           class="p-button-outlined p-button-danger go-back-btn"
           @click="handleDialogCancel" />
       <pv-button
-          label="Yes, save"
+          :label="$t('addParking.confirmation.confirm')"
           icon="pi pi-check"
           class="p-button-success save-btn"
           @click="handleDialogConfirm" />
