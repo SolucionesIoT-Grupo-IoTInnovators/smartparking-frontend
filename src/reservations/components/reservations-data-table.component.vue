@@ -62,6 +62,9 @@ export default {
         case 'CONFIRMED':
           return 'info';
       }
+    },
+    exportCSV() {
+      this.$refs.dt.exportCSV();
     }
   },
   created() {
@@ -77,7 +80,7 @@ export default {
 <template>
   <pv-data-table v-model:filters="filters" resizableColumns columnResizeMode="fit" filterDisplay="menu" :value="reservations" sortField="date" :sortOrder="-1"
                  stripedRows removableSort tableStyle="min-width: 50rem" :loading="loading" :paginator="true" :rows="10"
-                 :showGridlines="true">
+                 :showGridlines="true" ref="dt">
     <template #header>
     <div class="flex justify-content-between">
       <pv-button type="button" icon="pi pi-filter-slash" :label="$t('reservationData.clear')" outlined @click="clearFilter()"/>
@@ -89,6 +92,7 @@ export default {
           <pv-input-text v-model="filters['global'].value" :placeholder="$t('reservationData.search')"/>
         </pv-icon-field>
       </pv-icon-field>
+      <pv-button icon="pi pi-external-link" rounded raised label="Export" @click="exportCSV" />
       <pv-button icon="pi pi-refresh" rounded raised :label="$t('reservationData.refresh')" @click="refreshData"/>
     </div>
   </template>
