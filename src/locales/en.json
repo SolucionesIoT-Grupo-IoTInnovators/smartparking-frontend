@@ -73,6 +73,7 @@
     "title": "Reservation Data",
     "search": "Keyword search",
     "clear": "Clear",
+    "export": "Export data",
     "refresh": "Refresh",
     "date": "Date",
     "driverFullName": "Driver Full Name",

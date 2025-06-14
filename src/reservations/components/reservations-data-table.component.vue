@@ -1,6 +1,8 @@
 <script>
 import {ReservationService} from "../services/reservation.service.js";
 import {FilterMatchMode, FilterOperator} from '@primevue/core/api';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 export default {
   name: "reservations-data-table",
@@ -18,10 +20,10 @@ export default {
       error: null,
       filters: null,
       statuses: [
-        { label: this.$t('reservationData.pending'), value: 'PENDING' },
-        { label: this.$t('reservationData.confirmed'), value: 'CONFIRMED' },
-        { label: this.$t('reservationData.canceled'), value: 'CANCELED' },
-        { label: this.$t('reservationData.completed'), value: 'COMPLETED' }
+        { label: this.$t('reservationData.pending'), value: this.$t('reservationData.pending') },
+        { label: this.$t('reservationData.confirmed'), value: this.$t('reservationData.confirmed') },
+        { label: this.$t('reservationData.canceled'), value: this.$t('reservationData.canceled') },
+        { label: this.$t('reservationData.completed'), value: this.$t('reservationData.completed') }
       ]
     }
   },
@@ -53,18 +55,42 @@ export default {
     },
     getStatusLabel(status) {
       switch (status) {
-        case 'COMPLETED':
+        case this.$t('reservationData.completed'):
           return 'success';
-        case 'CANCELED':
+        case this.$t('reservationData.canceled'):
           return 'danger';
-        case 'PENDING':
+        case this.$t('reservationData.pending'):
           return 'warning';
-        case 'CONFIRMED':
+        case this.$t('reservationData.confirmed'):
           return 'info';
       }
     },
-    exportCSV() {
-      this.$refs.dt.exportCSV();
+    exportExcel() {
+      const headers = {
+        [this.$t('reservationData.date')]: 'date',
+        [this.$t('reservationData.driverFullName')]: 'driverFullName',
+        [this.$t('reservationData.vehiclePlate')]: 'vehiclePlate',
+        [this.$t('reservationData.startTime')]: 'startTime',
+        [this.$t('reservationData.endTime')]: 'endTime',
+        [this.$t('reservationData.totalPrice')]: 'totalPrice',
+        [this.$t('reservationData.status')]: 'status'
+      };
+
+      const data = this.reservations.map(item => {
+        const row = {};
+        for (const [translatedHeader, key] of Object.entries(headers)) {
+          row[translatedHeader] = item[key];
+        }
+        return row;
+      });
+
+      const worksheet = XLSX.utils.json_to_sheet(data);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Reservas');
+
+      const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+      const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+      saveAs(blob, `Reservas_Parking_${this.parkingId}.xlsx`);
     }
   },
   created() {
@@ -92,8 +118,10 @@ export default {
           <pv-input-text v-model="filters['global'].value" :placeholder="$t('reservationData.search')"/>
         </pv-icon-field>
       </pv-icon-field>
-      <pv-button icon="pi pi-external-link" rounded raised label="Export" @click="exportCSV" />
-      <pv-button icon="pi pi-refresh" rounded raised :label="$t('reservationData.refresh')" @click="refreshData"/>
+      <div class="flex gap-2">
+        <pv-button icon="pi pi-external-link"  raised :label="$t('reservationData.export')" @click="exportExcel" />
+        <pv-button icon="pi pi-refresh"  raised :label="$t('reservationData.refresh')" @click="refreshData"/>
+      </div>
     </div>
   </template>
     <template #empty> No data found.</template>

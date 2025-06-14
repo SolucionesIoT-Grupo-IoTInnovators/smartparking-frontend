@@ -73,6 +73,7 @@
     "title": "Datos de Reserva",
     "search": "Buscar",
     "clear": "Limpiar",
+    "export": "Exportar datos",
     "refresh": "Actualizar",
     "date": "Fecha",
     "driverFullName": "Nombre Completo del Conductor",
