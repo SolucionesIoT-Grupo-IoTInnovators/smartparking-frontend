@@ -29,7 +29,7 @@ export default {
       <pv-rating v-model="parking.rating" readonly class="mt-2"/>
     </template>
     <template #content>
-      <p>Rate Per Hour: ${{ parking.ratePerHour }}</p>
+      <p>{{ $t("addParking.ratePerHour") }}: ${{ parking.ratePerHour }}</p>
       <p class="mt-2">{{ parking.availableSpots }} / {{ parking.totalSpots }}</p>
     </template>
     <template #footer>
