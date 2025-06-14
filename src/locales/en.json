@@ -52,6 +52,11 @@
     "occupied": "Occupied",
     "reserved": "Reserved"
   },
+  "parking-spot-viewer": {
+    "available": "Available",
+    "occupied": "Occupied",
+    "reserved": "Reserved"
+  },
   "parking-home": {
     "loading": "Loading parking data...",
     "selectedSpot": "Select a parking spot to view details.",
