@@ -59,6 +59,12 @@ const router = createRouter({
                     name: 'dashboard',
                     component: ParkingDashboardComponent,
                     meta: {title: 'Parking Dashboard', layout: 'ParkingManagementLayout'}
+                },
+                {
+                    path: 'devices',
+                    name: 'devices-monitoring',
+                    component: ParkingDashboardComponent,
+                    meta: {title: 'Device Monitoring', layout: 'ParkingManagementLayout'}
                 }
             ]
         },

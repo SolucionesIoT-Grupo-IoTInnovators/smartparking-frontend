@@ -215,5 +215,8 @@
       "confirm": "Confirmar",
       "cancel": "Cancelar"
     }
+  },
+  "devices": {
+    "devicesMonitoring": "Monitoreo de Dispositivos"
   }
 }

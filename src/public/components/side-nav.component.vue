@@ -22,6 +22,7 @@ export default {
         active-class="active"
         exact
     >
+      <i class="pi pi-home mr-2"></i>
       {{ $t('sidebar.home') }}
     </router-link>
     <router-link
@@ -29,6 +30,7 @@ export default {
         class="nav-link"
         active-class="active"
     >
+      <i class="pi pi-calendar mr-2"></i>
       {{ $t('sidebar.reservations') }}
     </router-link>
     <router-link
@@ -36,6 +38,7 @@ export default {
         class="nav-link"
         active-class="active"
     >
+      <i class="pi pi-star mr-2"></i>
       {{ $t('sidebar.reviews') }}
     </router-link>
     <router-link
@@ -43,13 +46,23 @@ export default {
         class="nav-link"
         active-class="active"
     >
+      <i class="pi pi-chart-bar mr-2"></i>
       Dashboard
+    </router-link>
+    <router-link
+        :to="{ name: 'devices-monitoring' }"
+        class="nav-link"
+        active-class="active"
+    >
+      <i class="pi pi-desktop mr-2"></i>
+      {{ $t('devices.devicesMonitoring') }}
     </router-link>
     <router-link
         :to="{ name: 'parking-profile' }"
         class="nav-link"
         active-class="active"
     >
+      <i class="pi pi-cog mr-2"></i>
       {{ $t('sidebar.parkingProfile') }}
     </router-link>
   </div>
@@ -81,6 +94,7 @@ export default {
   transition: all 0.3s ease;
   border-left: 4px solid transparent;
   white-space: nowrap;
+  align-content: center;
 }
 
 .nav-link.active {
