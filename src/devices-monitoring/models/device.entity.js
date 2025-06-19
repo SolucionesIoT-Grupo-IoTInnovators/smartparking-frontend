@@ -3,7 +3,7 @@ export class Device {
         id = 0,
         macAddress = '',
         type = '',
-        operationStatus = '',
+        operationalStatus = '',
         spotStatus = '',
         spotLabel = '',
         parkingSpotId = '',
@@ -14,7 +14,7 @@ export class Device {
         this.id = id;
         this.macAddress = macAddress;
         this.type = type;
-        this.operationStatus = operationStatus;
+        this.operationalStatus = operationalStatus;
         this.spotStatus = spotStatus;
         this.spotLabel = spotLabel;
         this.parkingSpotId = parkingSpotId;

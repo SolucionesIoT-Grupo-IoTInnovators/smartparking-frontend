@@ -8,7 +8,8 @@ export class DeviceService {
     }
 
     updateDeviceMacAddress(deviceId, macAddress) {
-        return http.patch(`${this.resourceEndPoint}/${deviceId}`, {macAddress});
+        console.log(`${this.resourceEndPoint}/${deviceId}?macAddress=${macAddress}`);
+        return http.patch(`${this.resourceEndPoint}/${deviceId}?macAddress=${macAddress}`);
     }
 
     getDevicesByEdgeServerId(edgeServerId) {
