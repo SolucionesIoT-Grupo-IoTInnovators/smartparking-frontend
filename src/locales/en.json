@@ -215,5 +215,8 @@
       "confirm": "Yes, save",
       "cancel": "No, go back"
     }
+  },
+  "devices": {
+    "devicesMonitoring": "Devices Monitoring"
   }
 }

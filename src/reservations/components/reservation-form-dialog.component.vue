@@ -117,7 +117,7 @@ export default {
       <div class="p-fluid">
         <div class="my-4">
           <pv-float-label>
-            <pv-input-mask id="vehiclePlate" v-model="reservation.vehiclePlate" mask="aaa-aaa"
+            <pv-input-mask id="vehiclePlate" v-model="reservation.vehiclePlate" mask="***-***"
                            :class="{'p-invalid': submitted && !reservation.vehiclePlate }" class="w-full"/>
             <label for="vehiclePlate">{{ $t('reservationData.popUp.vehiclePlate') }}</label>
           </pv-float-label>

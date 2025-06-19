@@ -11,6 +11,7 @@ import ParkingDashboardComponent from "../dashboard-and-analytics/pages/parking-
 import ParkingCreateAndEditComponent from "../parking-management/components/parking-create-and-edit.component.vue";
 import ParkingProfileComponent from "../parking-management/pages/parking-profile.component.vue";
 import OwnerProfileComponent from "../profile-management/pages/owner-profile.component.vue";
+import DeviceMonitoringPage from "../devices-monitoring/pages/device-monitoring.page.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -59,6 +60,12 @@ const router = createRouter({
                     name: 'dashboard',
                     component: ParkingDashboardComponent,
                     meta: {title: 'Parking Dashboard', layout: 'ParkingManagementLayout'}
+                },
+                {
+                    path: 'devices',
+                    name: 'devices-monitoring',
+                    component: DeviceMonitoringPage,
+                    meta: {title: 'Device Monitoring', layout: 'ParkingManagementLayout'}
                 }
             ]
         },
