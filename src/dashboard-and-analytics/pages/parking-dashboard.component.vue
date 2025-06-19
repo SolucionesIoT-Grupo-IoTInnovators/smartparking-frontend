@@ -25,16 +25,20 @@ export default {
     async refreshData() {
       const parkingId = Number(localStorage.getItem("parkingId"));
       this.reservationService = new ReservationService();
-      const response = await this.reservationService.getAllReservationsByParkingId(parkingId);
-
-      if (response.status === 200) {
+      try {
+        const response = await this.reservationService.getAllReservationsByParkingId(parkingId);
         this.reservations = response.data;
         this.hourlyData = await this.calculateHourlyUsage(this.reservations);
         this.dailyData = this.calculateDailyUsage(this.reservations);
         this.monthlyData = this.calculateMonthlyEarnings(this.reservations);
         this.averageDurationByDay = this.calculateAverageDurationByDay(this.reservations);
-      } else {
-        console.error("Error fetching reservations:", response.status);
+      } catch(e) {
+        this.$toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: e.response?.data?.message || 'Error fetching reservations',
+          life: 3000
+        })
       }
     },
     async calculateHourlyUsage(reservations) {
