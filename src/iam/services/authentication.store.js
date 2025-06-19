@@ -27,21 +27,20 @@ export const useAuthenticationStore = defineStore({
             return false;
         },
         async signIn(signInRequest, router) {
-            authenticationService.signIn(signInRequest)
-                .then(response => {
-                    let signInResponse = new SignInResponse(response.data.id, response.data.email, response.data.token)
-                    this.signedIn = true
-                    this.userId = signInResponse.id
-                    this.username = signInResponse.username
-                    localStorage.setItem('token', signInResponse.token)
-                    localStorage.setItem('userId', signInResponse.id)
-                    localStorage.setItem('username', signInResponse.username)
-                    console.log(signInResponse)
-                    router.push({name: 'parking-directory', params: {ownerId: signInResponse.id} })
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            try {
+                const response = await authenticationService.signIn(signInRequest)
+                let signInResponse = new SignInResponse(response.data.id, response.data.email, response.data.token)
+                this.signedIn = true
+                this.userId = signInResponse.id
+                this.username = signInResponse.username
+                localStorage.setItem('token', signInResponse.token)
+                localStorage.setItem('userId', signInResponse.id)
+                localStorage.setItem('username', signInResponse.username)
+                router.push({name: 'parking-directory', params: {ownerId: signInResponse.id}})
+                return null
+            } catch (error) {
+                return error.response.data.message
+            }
         },
         async signUpDriver(signUpRequest, router) {
             authenticationService.signUpDriver(signUpRequest)

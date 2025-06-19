@@ -5,7 +5,8 @@ export default {
 </script>
 
 <template>
-<slot />
+  <slot />
+  <pv-toast />
 </template>
 
 <style scoped>
