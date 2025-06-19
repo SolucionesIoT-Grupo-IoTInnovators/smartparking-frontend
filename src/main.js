@@ -13,6 +13,7 @@ import 'primeicons/primeicons.css'
 import DialogService from "primevue/dialogservice";
 import ToastService from "primevue/toastservice";
 import Avatar from 'primevue/avatar';
+import Badge from 'primevue/badge';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Column from 'primevue/column';
@@ -35,6 +36,7 @@ import Tag from 'primevue/tag';
 import Textarea from 'primevue/textarea';
 import Toast from 'primevue/toast';
 import Toolbar from 'primevue/toolbar';
+import Tooltip from 'primevue/tooltip';
 import SelectButton from 'primevue/selectbutton';
 import SplitButton from 'primevue/splitbutton'
 import RadioButton from 'primevue/radiobutton';
@@ -81,9 +83,11 @@ app.use(PrimeVue, {
     }
 })
 .use(DialogService)
-.use(ToastService);
+.use(ToastService)
+.directive('tooltip', Tooltip);
 
 app.component('pv-avatar', Avatar)
+    .component('pv-badge', Badge)
     .component('pv-button', Button)
     .component('pv-card', Card)
     .component('pv-column', Column)
