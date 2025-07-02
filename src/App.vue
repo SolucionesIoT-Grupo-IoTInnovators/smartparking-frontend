@@ -10,7 +10,7 @@ import AuthLayout from "./iam/layouts/auth-layout.component.vue";
 import ParkingManagementLayout from "./parking-management/layouts/parking-management-layout.component.vue";
 import EmptyLayout from "./shared/layouts/empty-layout.component.vue";
 import { getToken, onMessage } from 'firebase/messaging';
-import { messaging } from './firebase/firebase.js'; // tu archivo de config
+import { messaging } from './firebase/firebase.js';
 import http from "../src/shared/services/http-common.js"
 
 import axios from 'axios';
@@ -25,7 +25,11 @@ export default {
     }
   },
   mounted() {
-    this.initFcm();
+    this.$root.initFcm = this.initFcm;
+    const authStore = useAuthenticationStore();
+    if (authStore.userId && authStore.userId !== 0) {
+      this.initFcm();
+    }
   },
 
   beforeUnmount() {

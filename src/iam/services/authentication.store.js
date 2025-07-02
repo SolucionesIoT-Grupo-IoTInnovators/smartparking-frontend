@@ -26,7 +26,7 @@ export const useAuthenticationStore = defineStore({
             }
             return false;
         },
-        async signIn(signInRequest, router) {
+        async signIn(signInRequest, router, onSuccessCallback) {
             authenticationService.signIn(signInRequest)
                 .then(response => {
                     let signInResponse = new SignInResponse(response.data.id, response.data.email, response.data.token)
@@ -37,6 +37,7 @@ export const useAuthenticationStore = defineStore({
                     localStorage.setItem('userId', signInResponse.id)
                     localStorage.setItem('username', signInResponse.username)
                     console.log(signInResponse)
+                    if (onSuccessCallback) onSuccessCallback();
                     router.push({name: 'parking-directory', params: {ownerId: signInResponse.id} })
                 })
                 .catch(error => {

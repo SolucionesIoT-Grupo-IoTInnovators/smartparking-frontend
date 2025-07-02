@@ -21,7 +21,9 @@ export default {
 
       let authenticationStore = useAuthenticationStore();
       let signInRequest = new SignInRequest(this.email, this.password);
-      authenticationStore.signIn(signInRequest, this.$router);
+      authenticationStore.signIn(signInRequest, this.$router, () => {
+        this.$root.initFcm();
+      });
     }
   }
 }
