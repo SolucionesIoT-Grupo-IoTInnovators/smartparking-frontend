@@ -16,6 +16,7 @@
     "chart.js": "^4.4.9",
     "dotenv": "^16.5.0",
     "file-saver": "^2.0.5",
+    "firebase": "^11.9.1",
     "mapbox-gl": "^3.11.0",
     "pinia": "^2.3.1",
     "primeflex": "^4.0.0",
