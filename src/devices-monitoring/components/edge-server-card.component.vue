@@ -1,5 +1,6 @@
 <script>
 import {EdgeServer} from "../models/edge-server.entity.js";
+import {EdgeServerService} from "../services/edge-server.service.js";
 
 export default {
   name: "edge-server-card",
@@ -9,6 +10,13 @@ export default {
       type: EdgeServer,
       required: true,
     },
+  },
+  data() {
+    return {
+      editingIp: false,
+      ipAddressValue: '',
+      edgeServerService: new EdgeServerService()
+    };
   },
   computed: {
     maskApiKey() {
@@ -59,6 +67,42 @@ export default {
     },
     emitServerId() {
       this.$emit('server-id-selected', this.edgeServer.serverId);
+    },
+    toggleIpEdit() {
+      if (!this.editingIp) {
+        this.ipAddressValue = this.edgeServer.ipAddress || '';
+      }
+      this.editingIp = !this.editingIp;
+    },
+    async handleUpdate() {
+      try {
+        const result = await this.edgeServerService.updateEdgeServerMacAddress(this.edgeServer.id, this.ipAddressValue);
+        if (result.status === 200) {
+          this.$toast.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'MAC Address updated successfully',
+            life: 3000
+          });
+          this.edgeServer.ipAddress = this.ipAddressValue; // Update local state
+        } else {
+          this.$toast.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to update MAC Address',
+            life: 3000
+          });
+        }
+      } catch (error) {
+        this.$toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'An error occurred while updating MAC Address',
+          life: 3000
+        });
+      } finally {
+        this.editingIp = false; // Reset editing state
+      }
     }
   }
 }
@@ -90,8 +134,15 @@ export default {
 
       <div class="grid w-full">
           <div class="col-12 md:col-6">
-            <span class="font-bold text-sm block text-500">IP Address</span>
-            <span class="text-color">{{ edgeServer.ipAddress || 'Not connected' }}</span>
+            <span class="font-bold text-sm block text-500">MAC Address</span>
+            <div v-if="!editingIp" @click="toggleIpEdit" class="cursor-pointer flex align-items-center">
+              <span class="text-color">{{ edgeServer.ipAddress || 'Not connected' }}</span>
+              <i class="pi pi-pencil ml-2 text-xs"></i>
+            </div>
+            <div v-else class="flex align-items-center">
+              <pv-input-text v-model="ipAddressValue" class="w-full p-0" size="small" />
+              <pv-button label="Edit" size="small" class="ml-2 p-button-sm" @click="handleUpdate(); toggleIpEdit();" />
+            </div>
           </div>
           <div class="col-12 md:col-6">
             <span class="font-bold text-sm block text-500">Connected Devices</span>
@@ -118,5 +169,7 @@ export default {
 </template>
 
 <style scoped>
-
+.cursor-pointer {
+  cursor: pointer;
+}
 </style>
