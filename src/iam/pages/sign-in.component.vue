@@ -12,7 +12,7 @@ export default {
     };
   },
   methods: {
-    async onSignIn() {
+    onSignIn() {
       this.submitted = true;
 
       if (!this.email || !this.password) {
@@ -21,15 +21,9 @@ export default {
 
       let authenticationStore = useAuthenticationStore();
       let signInRequest = new SignInRequest(this.email, this.password);
-      const message = await authenticationStore.signIn(signInRequest, this.$router);
-      if (message) {
-        this.$toast.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: message,
-          life: 3000
-        });
-      }
+      authenticationStore.signIn(signInRequest, this.$router, () => {
+        this.$root.initFcm();
+      });
     }
   }
 }
