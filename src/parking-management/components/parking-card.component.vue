@@ -30,7 +30,7 @@ export default {
     </template>
     <template #content>
       <p>{{ $t("addParking.ratePerHour") }}: ${{ parking.ratePerHour }}</p>
-      <p class="mt-2">{{ parking.availableSpots }} / {{ parking.totalSpots }}</p>
+      <!--<p class="mt-2">{{ parking.availableSpots }} / {{ parking.totalSpots }}</p>-->
     </template>
     <template #footer>
       <pv-button :label="$t('parkingList.viewDetails')" icon="pi pi-eye" class="w-full" @click="navigateToHome(parking.id)"/>
