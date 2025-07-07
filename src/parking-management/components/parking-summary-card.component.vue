@@ -19,8 +19,8 @@ export default {
       <p class="text-md text-gray-600">{{ $t('parking-summary-card.overView') }}</p>
     </div>
 
-    <div class="grid w-full">
-      <div class="col-12 md:col-4">
+    <!--<div class="w-full">
+      <div class="">
         <div class="surface-card p-3 shadow-1 border-round text-center h-full">
           <p class="text-sm text-gray-500 mb-1">{{ $t('parking-summary-card.totalSpots') }}</p>
           <p class="text-2xl font-bold text-primary">{{ parking.totalSpots }}</p>
@@ -40,7 +40,7 @@ export default {
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 </template>
